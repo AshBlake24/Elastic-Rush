@@ -1,32 +1,44 @@
+using System;
 using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    public class Ball : MonoBehaviour
+    public class Ball
     {
+        private const int MinLevel = 1;
         private const float MinSize = 1f;
-        private const float MaxSize = 10f;
+        private const float MaxSize = 3.5f;
 
-        [SerializeField, Min(1)] private int _level;
-
+        private int _level;
         private float _size;
 
+        public Ball() : this(MinLevel) { }
+
+        public Ball(int level)
+        {
+            _level = level;
+        }
+
+        public event Action<float> SizeChanged;
+
+        public int Level => _level;
         public float Size => _size;
 
-        private void OnValidate()
+        public void SetLevel(int level)
         {
-            ChangeSize();
+            if (level < MinLevel)
+                throw new ArgumentOutOfRangeException(nameof(level), "level cannot be less than 1");
 
-            transform.position = new Vector3(
-                transform.position.x,
-                transform.localScale.y / 2,
-                transform.position.z);
+            _level = level;
+
+            ChangeSize();
         }
 
         private void ChangeSize()
         {
-            _size = Mathf.Clamp(Mathf.Log10(_level), MinSize, MaxSize);
-            transform.localScale = Vector3.one * _size;
+            _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI);
+
+            SizeChanged?.Invoke(_size);
         }
     }
 }
