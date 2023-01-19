@@ -7,7 +7,7 @@ namespace ElasticRush.Core
     {
         [SerializeField, Min(1)] private int _level;
 
-        private Ball _ball = new Ball();
+        private readonly Ball _ball = new();
 
         private void OnValidate()
         {
@@ -18,7 +18,7 @@ namespace ElasticRush.Core
 
         private void Awake()
         {
-            _ball = new Ball(_level);
+            _ball.SetLevel(_level);
 
             OnSizeChanged(_ball.Size);
         }

@@ -12,13 +12,6 @@ namespace ElasticRush.Core
         private int _level;
         private float _size;
 
-        public Ball() : this(MinLevel) { }
-
-        public Ball(int level)
-        {
-            _level = level;
-        }
-
         public event Action<float> SizeChanged;
 
         public int Level => _level;
