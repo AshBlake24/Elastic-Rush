@@ -9,6 +9,10 @@ namespace ElasticRush.Core
 
         private readonly Ball _ball = new();
 
+        private int _score;
+
+        public int Score => _score;
+
         private void OnValidate()
         {
             _ball.SetLevel(_level);
@@ -31,6 +35,11 @@ namespace ElasticRush.Core
         private void OnDisable()
         {
             _ball.SizeChanged -= OnSizeChanged;
+        }
+
+        public void AddScore(int score)
+        {
+            _score += score;
         }
 
         public void LevelUp(int level = 1)
