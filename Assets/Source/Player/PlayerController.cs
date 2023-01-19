@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace ElasticRush.Core
 {
@@ -54,7 +53,7 @@ namespace ElasticRush.Core
 
                     _currentPosition = new Vector3(
                         Mathf.Clamp(_currentPosition.x + xAxisScaledMoveDelta, -_xAxisBounds, _xAxisBounds),
-                        transform.position.y,
+                        transform.localScale.y / 2,
                         transform.position.z);
 
                     transform.position = _currentPosition;
