@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace ElasticRush.Collectables
 {
-
     public class ElasticBand : CollectableItem
     {
         protected override void OnCollected(Player player)

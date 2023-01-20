@@ -10,6 +10,8 @@ namespace ElasticRush.Collectables
         protected override void OnCollected(Player player)
         {
             player.AddScore(_scoreAmount);
+
+            Destroy(gameObject);
         }
     }
 }
