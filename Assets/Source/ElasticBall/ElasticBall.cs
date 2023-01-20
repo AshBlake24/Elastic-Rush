@@ -29,7 +29,7 @@ namespace ElasticRush.Core
 
         private void ChangeSize()
         {
-            _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI);
+            _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI) + 1;
 
             SizeChanged?.Invoke(_size);
         }
