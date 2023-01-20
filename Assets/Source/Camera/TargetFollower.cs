@@ -31,8 +31,11 @@ namespace ElasticRush.Core
 
         private void LateUpdate()
         {
-            _updateTargetPosition.Invoke();
-            transform.position = _targetPosition + _offset;
+            if (_targetTransform != null)
+            {
+                _updateTargetPosition.Invoke();
+                transform.position = _targetPosition + _offset;
+            }
         }
 
         private void AddXAxis()
