@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -5,6 +6,8 @@ namespace ElasticRush.Core
     public class Ball : Enemy
     {
         [SerializeField, Min(1)] private int _startLevel = 1;
+        [SerializeField] private TMP_Text _levelFrame;
+        [SerializeField] private Player _player;
 
         private readonly ElasticBall _elsaticBall = new();
 
@@ -13,6 +16,7 @@ namespace ElasticRush.Core
         private void OnValidate()
         {
             _elsaticBall.SetLevel(_startLevel);
+            _levelFrame.text = $"Lvl {Level}";
 
             ChangeSize(_elsaticBall.Size);
         }
@@ -22,6 +26,21 @@ namespace ElasticRush.Core
             _elsaticBall.SetLevel(_startLevel);
 
             ChangeSize(_elsaticBall.Size);
+        }
+
+        private void OnEnable()
+        {
+            _player.LevelChanged += OnPlayerLevelChanged;
+        }
+
+        private void Start()
+        {
+            _levelFrame.text = $"Lvl {Level}";
+        }
+
+        private void OnDisable()
+        {
+            _player.LevelChanged -= OnPlayerLevelChanged;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -48,6 +67,14 @@ namespace ElasticRush.Core
                         transform.position.x,
                         transform.localScale.y / 2,
                         transform.position.z);
+        }
+
+        private void OnPlayerLevelChanged()
+        {
+            if (_player.Level >= Level)
+                _levelFrame.color = Color.green;
+            else
+                _levelFrame.color = Color.red;
         }
     }
 }

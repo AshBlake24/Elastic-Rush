@@ -348,3 +348,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLevel: 1
+  _levelFrame: {fileID: 6797870743921211873}
+  _player: {fileID: 0}

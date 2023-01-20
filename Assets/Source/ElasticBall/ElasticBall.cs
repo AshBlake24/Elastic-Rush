@@ -12,6 +12,7 @@ namespace ElasticRush.Core
         private int _level;
         private float _size;
 
+        public event Action<int> LevelChanged;
         public event Action<float> SizeChanged;
 
         public int Level => _level;
@@ -23,6 +24,8 @@ namespace ElasticRush.Core
                 throw new ArgumentOutOfRangeException(nameof(level), "level cannot be less than 1");
 
             _level = level;
+
+            LevelChanged?.Invoke(_level);
 
             ChangeSize();
         }

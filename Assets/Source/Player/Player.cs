@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -6,12 +7,14 @@ namespace ElasticRush.Core
     public class Player : MonoBehaviour
     {
         [SerializeField, Min(1)] private int _startLevel = 1;
+        [SerializeField] private TMP_Text _levelFrame;
 
         private readonly ElasticBall _elsaticBall = new();
 
         private int _score;
 
         public event Action Died;
+        public event Action LevelChanged;
 
         public int Score => _score;
         public int Level => _elsaticBall.Level;
@@ -19,6 +22,7 @@ namespace ElasticRush.Core
         private void OnValidate()
         {
             _elsaticBall.SetLevel(_startLevel);
+            _levelFrame.text = $"Lvl {Level}";
 
             OnSizeChanged(_elsaticBall.Size);
         }
@@ -33,11 +37,18 @@ namespace ElasticRush.Core
         private void OnEnable()
         {
             _elsaticBall.SizeChanged += OnSizeChanged;
+            _elsaticBall.LevelChanged += OnLevelChanged;
+        }
+
+        private void Start()
+        {
+            LevelChanged?.Invoke();
         }
 
         private void OnDisable()
         {
             _elsaticBall.SizeChanged -= OnSizeChanged;
+            _elsaticBall.LevelChanged -= OnLevelChanged;
         }
 
         public void Die()
@@ -69,6 +80,13 @@ namespace ElasticRush.Core
                         transform.position.x,
                         transform.localScale.y / 2,
                         transform.position.z);
+        }
+
+        private void OnLevelChanged(int obj)
+        {
+            LevelChanged?.Invoke();
+
+            _levelFrame.text = $"Lvl {Level}";
         }
     }
 }
