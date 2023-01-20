@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    public class Ball
+    public class ElasticBall
     {
         private const int MinLevel = 1;
         private const float MinSize = 1f;

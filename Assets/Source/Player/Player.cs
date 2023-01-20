@@ -7,35 +7,35 @@ namespace ElasticRush.Core
     {
         [SerializeField, Min(1)] private int _startLevel;
 
-        private readonly Ball _ball = new();
+        private readonly ElasticBall _elsaticBall = new();
 
         private int _score;
 
         public int Score => _score;
-        public int Level => _ball.Level;
+        public int Level => _elsaticBall.Level;
 
         private void OnValidate()
         {
-            _ball.SetLevel(_startLevel);
+            _elsaticBall.SetLevel(_startLevel);
 
-            OnSizeChanged(_ball.Size);
+            OnSizeChanged(_elsaticBall.Size);
         }
 
         private void Awake()
         {
-            _ball.SetLevel(_startLevel);
+            _elsaticBall.SetLevel(_startLevel);
 
-            OnSizeChanged(_ball.Size);
+            OnSizeChanged(_elsaticBall.Size);
         }
 
         private void OnEnable()
         {
-            _ball.SizeChanged += OnSizeChanged;
+            _elsaticBall.SizeChanged += OnSizeChanged;
         }
 
         private void OnDisable()
         {
-            _ball.SizeChanged -= OnSizeChanged;
+            _elsaticBall.SizeChanged -= OnSizeChanged;
         }
 
         public void AddScore(int score)
@@ -50,7 +50,7 @@ namespace ElasticRush.Core
 
             int newLevel = Level + level;
 
-            _ball.SetLevel(newLevel);
+            _elsaticBall.SetLevel(newLevel);
         }
 
         private void OnSizeChanged(float size)
