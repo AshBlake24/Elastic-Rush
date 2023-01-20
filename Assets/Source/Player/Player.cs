@@ -5,24 +5,25 @@ namespace ElasticRush.Core
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField, Min(1)] private int _level;
+        [SerializeField, Min(1)] private int _startLevel;
 
         private readonly Ball _ball = new();
 
         private int _score;
 
         public int Score => _score;
+        public int Level => _ball.Level;
 
         private void OnValidate()
         {
-            _ball.SetLevel(_level);
+            _ball.SetLevel(_startLevel);
 
             OnSizeChanged(_ball.Size);
         }
 
         private void Awake()
         {
-            _ball.SetLevel(_level);
+            _ball.SetLevel(_startLevel);
 
             OnSizeChanged(_ball.Size);
         }
@@ -47,9 +48,9 @@ namespace ElasticRush.Core
             if (level < 1)
                 throw new ArgumentOutOfRangeException(nameof(level), "level cannot be less than 1");
 
-            _level += level;
+            int newLevel = Level + level;
 
-            _ball.SetLevel(_level);
+            _ball.SetLevel(newLevel);
         }
 
         private void OnSizeChanged(float size)
