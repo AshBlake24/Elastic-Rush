@@ -15,6 +15,7 @@ namespace ElasticRush.Core
 
         public event Action Died;
         public event Action LevelChanged;
+        public event Action ScoreChanged;
 
         public int Score => _score;
         public int Level => _elsaticBall.Level;
@@ -60,6 +61,8 @@ namespace ElasticRush.Core
         public void AddScore(int score)
         {
             _score += score;
+
+            ScoreChanged?.Invoke();
         }
 
         public void LevelUp(int levels = 1)
