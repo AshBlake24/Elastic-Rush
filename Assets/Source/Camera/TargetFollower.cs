@@ -6,8 +6,8 @@ namespace ElasticRush.Core
     {
         [SerializeField] private Transform _target;
 
-        private Quaternion _lastTargetRotation;
         private Vector3 _positionOffset;
+        private float _lastTargetRotationAlongY;
 
         private void Start()
         {
@@ -32,10 +32,9 @@ namespace ElasticRush.Core
 
         private void RotateAroundTarget()
         {
-            float delta = _target.rotation.y - _lastTargetRotation.y;
-            _lastTargetRotation = _target.rotation;
-            Debug.Log("Last " + _lastTargetRotation);
-            Debug.Log("Delta " + delta);
+            float delta = _target.rotation.y - _lastTargetRotationAlongY;
+            _lastTargetRotationAlongY = _target.rotation.y;
+
             transform.RotateAround(_target.position, Vector3.up, delta);
 
             UpdatePositionOffset();
