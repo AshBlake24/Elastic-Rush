@@ -1863,11 +1863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46f2945e7f5cc24eb0522885932562e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTransform: {fileID: 1319245242}
-  _offset: {x: 0, y: 0.5, z: -2}
-  _lockXAxis: 0
-  _lockYAxis: 1
-  _lockZAxis: 0
+  _target: {fileID: 1319245242}
 --- !u!114 &573531561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2688,11 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f46f2945e7f5cc24eb0522885932562e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTransform: {fileID: 1319245242}
-  _offset: {x: 0, y: 9, z: -11}
-  _lockXAxis: 1
-  _lockYAxis: 1
-  _lockZAxis: 0
+  _target: {fileID: 1319245242}
 --- !u!4 &971383986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8928277964987074364, guid: 34ee34128eb460c44890cf9be665ee1c, type: 3}

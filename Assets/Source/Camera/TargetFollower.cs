@@ -5,18 +5,20 @@ namespace ElasticRush.Core
 {
     public class TargetFollower : MonoBehaviour
     {
-        [SerializeField] private Transform _targetTransform;
-        [SerializeField] private Vector3 _offset;
+        [SerializeField] private Transform _target;
         [SerializeField] private bool _lockXAxis;
         [SerializeField] private bool _lockYAxis;
         [SerializeField] private bool _lockZAxis;
 
         private Vector3 _targetPosition;
+        private Vector3 _positionOffset;
 
         private Action _updateTargetPosition;
 
         private void Start()
         {
+            _positionOffset = transform.position - _target.position;
+
             _updateTargetPosition = ResetTargetPosition;
 
             if (_lockXAxis == false)
@@ -31,17 +33,19 @@ namespace ElasticRush.Core
 
         private void LateUpdate()
         {
-            if (_targetTransform != null)
-            {
-                _updateTargetPosition.Invoke();
-                transform.position = _targetPosition + _offset;
-            }
+            Move();
+        }
+
+        private void Move()
+        {
+            _updateTargetPosition.Invoke();
+            transform.position = _targetPosition + _positionOffset;
         }
 
         private void AddXAxis()
         {
             _targetPosition = new Vector3(
-                _targetTransform.position.x,
+                _target.position.x,
                 _targetPosition.y,
                 _targetPosition.z);
         }
@@ -50,7 +54,7 @@ namespace ElasticRush.Core
         {
             _targetPosition = new Vector3(
                 _targetPosition.x,
-                _targetTransform.position.y,
+                _target.position.y,
                 _targetPosition.z);
         }
 
@@ -59,7 +63,7 @@ namespace ElasticRush.Core
             _targetPosition = new Vector3(
                 _targetPosition.x,
                 _targetPosition.y,
-                _targetTransform.position.z);
+                _target.position.z);
         }
 
         private void ResetTargetPosition()
