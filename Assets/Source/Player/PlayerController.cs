@@ -2,27 +2,27 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(WaypointFollower))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField, Range(0.1f, 3f)] private float _sensitivty;
-        [SerializeField] private float _forwardSpeed;
-        [SerializeField] private float _rotationSpeed;
+        [SerializeField] private float _movingSpeed;
+        //[SerializeField] private float _rotationSpeed;
         [SerializeField] private float _xAxisBounds;
-        [SerializeField] private Waypoint _startWaypoint;
 
-        private Vector3 _currentPosition;
-        private WaypointFollower _waypointFollower;
-        private Rigidbody _rigidbody;
         private PlayerInput _input;
+        private Rigidbody _rigidbody;
+        private WaypointFollower _waypointFollower;
+        private Vector3 _currentPosition;
+        private Vector3 _direction;
         private bool _isDragging;
-        private Vector3 _currentVelocity;
+
 
         private void Awake()
         {
             _input = new PlayerInput();
             _rigidbody = GetComponent<Rigidbody>();
-            _waypointFollower = new WaypointFollower(_startWaypoint);
+            _waypointFollower = GetComponent<WaypointFollower>();
         }
 
         private void OnEnable()
@@ -43,19 +43,10 @@ namespace ElasticRush.Core
 
         private void FixedUpdate()
         {
-            float distanceToWaypoint = Vector3.Distance(
-                transform.position,
-                _waypointFollower.CurrentWaypoint.transform.position);
+            //Vector3 velocity = _direction.normalized * _movingSpeed;
+            //Vector3 newVelocity = Vector3.MoveTowards(_rigidbody.velocity, velocity, _rotationSpeed * Time.deltaTime);
 
-            if (distanceToWaypoint < 0.5f)
-            {
-                _waypointFollower.SetNextWaypoint();
-                Debug.Log("Set new waypoint");
-            }
-
-            Vector3 direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
-
-            _rigidbody.velocity = direction.normalized * _forwardSpeed;
+            _rigidbody.velocity = _direction.normalized * _movingSpeed;
         }
 
         private void Update()
@@ -76,44 +67,13 @@ namespace ElasticRush.Core
                     transform.position = _currentPosition;
                 }
             }
+
+            CalculateDirection();
         }
 
-        private void LateUpdate()
+        private void CalculateDirection()
         {
-            //if (_waypointFollower == null)
-            //    return;
-
-            //float distanceToWaypoint = Vector3.Distance(
-            //    transform.position,
-            //    _waypointFollower.CurrentWaypoint.transform.position);
-
-            //if (distanceToWaypoint < 0.5f)
-            //{
-            //    _waypointFollower.SetNextWaypoint();
-            //    Debug.Log("Set new waypoint");
-            //}
-            //else
-            //    Rotate();
-        }
-
-        private void Rotate()
-        {
-            Vector3 direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-
-            //float yAxisRotation = Mathf.SmoothDamp(
-            //    transform.eulerAngles.y,
-            //    lookRotation.eulerAngles.y,
-            //    ref _currentVelocity,
-            //    _rotationSpeed * Time.deltaTime);
-
-            Vector3 rotation = Vector3.SmoothDamp(
-                transform.eulerAngles,
-                lookRotation.eulerAngles,
-                ref _currentVelocity,
-                _rotationSpeed);
-
-            transform.rotation = Quaternion.Euler(rotation);
+            _direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
         }
 
         private void OnClickStarted()

@@ -1,20 +1,40 @@
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+
 namespace ElasticRush.Core
 {
-    public class WaypointFollower
+    public class WaypointFollower : MonoBehaviour
     {
-        public Waypoint CurrentWaypoint { get; private set; }
+        [SerializeField] private Waypoint _startWaypoint;
+        [SerializeField] private float _waypointChangeDistance;
 
-        public WaypointFollower(Waypoint startWaypoint)
+        private Waypoint _currentWaypoint;
+
+        public Waypoint CurrentWaypoint => _currentWaypoint;
+
+
+        private void Start()
         {
-            CurrentWaypoint = startWaypoint;
+            _currentWaypoint = _startWaypoint;
         }
 
-        public void SetNextWaypoint()
+        private void Update()
         {
-            if (CurrentWaypoint.NextWaypoint != null)
-                CurrentWaypoint = CurrentWaypoint.NextWaypoint;
+            if (_currentWaypoint == null)
+                return;
+
+            float distanceToWaypoint = Vector3.Distance(transform.position, _currentWaypoint.transform.position);
+
+            if (distanceToWaypoint < _waypointChangeDistance)
+                SetNextWaypoint();
+        }
+
+        private void SetNextWaypoint()
+        {
+            if (_currentWaypoint.NextWaypoint != null)
+                _currentWaypoint = _currentWaypoint.NextWaypoint;
             else
-                CurrentWaypoint = null;
+                _currentWaypoint = null;
         }
     }
 }
