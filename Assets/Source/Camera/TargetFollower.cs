@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -5,39 +6,69 @@ namespace ElasticRush.Core
     public class TargetFollower : MonoBehaviour
     {
         [SerializeField] private Transform _target;
+        [SerializeField] private bool _lockXAxis;
+        [SerializeField] private bool _lockYAxis;
+        [SerializeField] private bool _lockZAxis;
 
+        private Vector3 _targetPosition;
         private Vector3 _positionOffset;
-        private float _lastTargetRotationAlongY;
+
+        private Action _updateTargetPosition;
 
         private void Start()
         {
-            UpdatePositionOffset();
+            _positionOffset = transform.position - _target.position;
+
+            _updateTargetPosition = ResetTargetPosition;
+
+            if (_lockXAxis == false)
+                _updateTargetPosition += AddXAxis;
+
+            if (_lockYAxis == false)
+                _updateTargetPosition += AddYAxis;
+
+            if (_lockZAxis == false)
+                _updateTargetPosition += AddZAxis;
         }
 
         private void LateUpdate()
         {
             Move();
-            RotateAroundTarget();
         }
 
         private void Move()
         {
-            transform.position = _target.position + _positionOffset;
+            _updateTargetPosition.Invoke();
+            transform.position = _targetPosition + _positionOffset;
         }
 
-        private void UpdatePositionOffset()
+        private void AddXAxis()
         {
-            _positionOffset = transform.position - _target.position;
+            _targetPosition = new Vector3(
+                _target.position.x,
+                _targetPosition.y,
+                _targetPosition.z);
         }
 
-        private void RotateAroundTarget()
+        private void AddYAxis()
         {
-            float delta = _target.rotation.y - _lastTargetRotationAlongY;
-            _lastTargetRotationAlongY = _target.rotation.y;
+            _targetPosition = new Vector3(
+                _targetPosition.x,
+                _target.position.y,
+                _targetPosition.z);
+        }
 
-            transform.RotateAround(_target.position, Vector3.up, delta);
+        private void AddZAxis()
+        {
+            _targetPosition = new Vector3(
+                _targetPosition.x,
+                _targetPosition.y,
+                _target.position.z);
+        }
 
-            UpdatePositionOffset();
+        private void ResetTargetPosition()
+        {
+            _targetPosition = Vector3.zero;
         }
     }
 }
