@@ -51,8 +51,8 @@ namespace ElasticRush.Core
 
         private void Rotate()
         {
-            var direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
-            var lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+            //var direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
+            var lookRotation = Quaternion.LookRotation(_waypointFollower.Direction, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }

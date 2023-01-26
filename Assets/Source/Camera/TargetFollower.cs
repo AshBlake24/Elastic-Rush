@@ -36,6 +36,10 @@ namespace ElasticRush.Core
             Move();
         }
 
+        private void Rotate()
+        {
+        }
+
         private void Move()
         {
             _updateTargetPosition.Invoke();

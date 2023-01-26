@@ -7,5 +7,11 @@ namespace ElasticRush.Core
         [SerializeField] private Waypoint _nextWaypoint;
 
         public Waypoint NextWaypoint => _nextWaypoint;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out WaypointFollower follower))
+                follower.SetNextWaypoint();
+        }
     }
 }
