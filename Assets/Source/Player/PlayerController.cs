@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField, Range(0.1f, 3f)] private float _sensitivty;
@@ -10,7 +9,6 @@ namespace ElasticRush.Core
         [SerializeField] private float _xAxisBounds;
 
         private PlayerInput _input;
-        private Rigidbody _rigidbody;
         private Vector3 _currentPosition;
         private bool _isDragging;
 
@@ -18,7 +16,6 @@ namespace ElasticRush.Core
         private void Awake()
         {
             _input = new PlayerInput();
-            _rigidbody = GetComponent<Rigidbody>();
         }
 
         private void OnEnable()
@@ -35,11 +32,6 @@ namespace ElasticRush.Core
 
             _input.Player.Click.started -= (ctx) => OnClickStarted();
             _input.Player.Click.canceled -= (ctx) => OnClickCanceled();
-        }
-
-        private void FixedUpdate()
-        {
-            _rigidbody.velocity = Vector3.forward * _movingSpeed;
         }
 
         private void Update()
@@ -60,6 +52,8 @@ namespace ElasticRush.Core
                     transform.position = _currentPosition;
                 }
             }
+
+            transform.Translate(transform.forward * _movingSpeed * Time.deltaTime);
         }
 
         private void OnClickStarted()
