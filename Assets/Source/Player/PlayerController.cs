@@ -2,19 +2,16 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    [RequireComponent(typeof(Rigidbody), typeof(WaypointFollower))]
+    [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField, Range(0.1f, 3f)] private float _sensitivty;
         [SerializeField] private float _movingSpeed;
-        //[SerializeField] private float _rotationSpeed;
         [SerializeField] private float _xAxisBounds;
 
         private PlayerInput _input;
         private Rigidbody _rigidbody;
-        private WaypointFollower _waypointFollower;
         private Vector3 _currentPosition;
-        private Vector3 _direction;
         private bool _isDragging;
 
 
@@ -22,7 +19,6 @@ namespace ElasticRush.Core
         {
             _input = new PlayerInput();
             _rigidbody = GetComponent<Rigidbody>();
-            _waypointFollower = GetComponent<WaypointFollower>();
         }
 
         private void OnEnable()
@@ -43,10 +39,7 @@ namespace ElasticRush.Core
 
         private void FixedUpdate()
         {
-            //Vector3 velocity = _direction.normalized * _movingSpeed;
-            //Vector3 newVelocity = Vector3.MoveTowards(_rigidbody.velocity, velocity, _rotationSpeed * Time.deltaTime);
-
-            _rigidbody.velocity = _direction.normalized * _movingSpeed;
+            _rigidbody.velocity = Vector3.forward * _movingSpeed;
         }
 
         private void Update()
@@ -67,13 +60,6 @@ namespace ElasticRush.Core
                     transform.position = _currentPosition;
                 }
             }
-
-            CalculateDirection();
-        }
-
-        private void CalculateDirection()
-        {
-            _direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
         }
 
         private void OnClickStarted()
