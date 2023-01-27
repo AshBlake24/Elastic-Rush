@@ -63,10 +63,10 @@ namespace ElasticRush.Core
         {
             transform.localScale = Vector3.one * size;
 
-            transform.position = new Vector3(
+            transform.localPosition = new Vector3(
                         transform.position.x,
                         transform.localScale.y / 2,
-                        transform.position.z);
+                        transform.localPosition.z);
         }
 
         private void OnPlayerLevelChanged()

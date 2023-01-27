@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class Waypoint : MonoBehaviour
     {
         [SerializeField] private Waypoint _nextWaypoint;

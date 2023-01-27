@@ -2,24 +2,18 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    [RequireComponent(typeof(WaypointFollower))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField, Range(0.1f, 3f)] private float _sensitivty;
-        [SerializeField] private float _movingSpeed;
-        [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _xAxisBounds;
 
         private PlayerInput _input;
-        private WaypointFollower _waypointFollower;
-        private Vector3 _currentPosition;
         private bool _isDragging;
 
 
         private void Awake()
         {
             _input = new PlayerInput();
-            _waypointFollower = GetComponent<WaypointFollower>();
         }
 
         private void OnEnable()
@@ -42,32 +36,22 @@ namespace ElasticRush.Core
         {
             if (_isDragging)
                 TryDrag();
-
-            if (_waypointFollower.CurrentWaypoint != null)
-                Rotate();
-
-            transform.Translate(transform.forward * _movingSpeed * Time.deltaTime, Space.World);
-        }
-
-        private void Rotate()
-        {
-            //var direction = _waypointFollower.CurrentWaypoint.transform.position - transform.position;
-            var lookRotation = Quaternion.LookRotation(_waypointFollower.Direction, Vector3.up);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
 
         private void TryDrag()
         {
-            float xAxisMoveDelta = _input.Player.Drag.ReadValue<Vector2>().x;
+            float moveDeltaAlongX = _input.Player.Drag.ReadValue<Vector2>().x;
 
-            if (xAxisMoveDelta != 0)
+            if (moveDeltaAlongX != 0)
             {
-                float xAxisScaledMoveDelta = xAxisMoveDelta * _sensitivty * Time.deltaTime;
+                float scaledMoveDeltaAlongX = moveDeltaAlongX * _sensitivty * Time.deltaTime;
 
-                var direction = new Vector3(xAxisScaledMoveDelta, 0, 0);
+                var localPosition = new Vector3(
+                    Mathf.Clamp(transform.localPosition.x + scaledMoveDeltaAlongX, -_xAxisBounds, _xAxisBounds),
+                    transform.localPosition.y,
+                    transform.localPosition.z);
 
-                transform.position += transform.TransformDirection(direction);
+                transform.localPosition = localPosition;
             }
         }
 
