@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    public class ElasticBall : MonoBehaviour
+    public class ElasticBall : MonoBehaviour, IReadonlyElasticBall
     {
         private const float MinSize = 1f;
         private const float MaxSize = 3f;
@@ -14,10 +14,20 @@ namespace ElasticRush.Core
 
         private float _size;
 
+        public event Action LevelChanged;
+
+        public int Level => _level;
+        public TMP_Text LevelFrame => _levelFrame;
+
         private void OnValidate()
         {
             SetLevel(_level);
             ChangeSize();
+        }
+
+        private void Start()
+        {
+            LevelChanged?.Invoke();
         }
 
         public void LevelUp(int levels = 1)
@@ -37,6 +47,8 @@ namespace ElasticRush.Core
 
             if (_levelFrame != null)
                 _levelFrame.text = $"Lvl {_level}";
+
+            LevelChanged?.Invoke();
         }
 
         private void ChangeSize()
