@@ -1,3 +1,4 @@
+using System;
 using ElasticRush.Core;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace ElasticRush.Collectables
     {
         protected override void OnCollected(Player player)
         {
-            player.LevelUp();
+            throw new NotImplementedException();
 
             Destroy(gameObject);
         }
