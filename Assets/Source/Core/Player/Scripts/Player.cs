@@ -6,17 +6,19 @@ namespace ElasticRush.Core
     [RequireComponent(typeof(ElasticBall))]
     public class Player : MonoBehaviour
     {
-        private ElasticBall _elasticBall;
+        [SerializeField] private ElasticBall _elasticBall;
+
         private int _score;
 
-        public event Action Died;
         public event Action ScoreChanged;
+        public event Action Died;
 
+        public IReadonlyElasticBall ElasticBall => _elasticBall;
         public int Score => _score;
 
-        private void Awake()
+        public void LevelUp(int level)
         {
-            _elasticBall = GetComponent<ElasticBall>();
+            _elasticBall.LevelUp(level);
         }
 
         public void Die()
