@@ -1,74 +1,47 @@
-using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.Core
 {
+    [RequireComponent(typeof(ElasticBall))]
     public class Ball : Enemy
     {
-        //[SerializeField, Min(1)] private int _startLevel = 1;
-        //[SerializeField] private TMP_Text _levelFrame;
-        //[SerializeField] private Player _player;
+        [SerializeField] private Player _player;
+        [SerializeField] private ElasticBall _elasticBall;
 
-        //private readonly ElasticBall _elsaticBall = new();
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _player.ElasticBall.LevelChanged += OnPlayerLevelChanged;
+        }
 
-        //public int Level => _elsaticBall.Level;
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            _player.ElasticBall.LevelChanged -= OnPlayerLevelChanged;
+        }
 
+        protected override void OnTriggerEntered(Collider collider)
+        {
+            if (collider.GetComponentInParent<Player>() == null)
+                return;
 
+            if (_player.ElasticBall.Level >= _elasticBall.Level)
+            {
+                _player.LevelUp(_elasticBall.Level);
+                Destroy(gameObject);
+            }
+            else
+            {
+                _player.Die();
+            }
+        }
 
-        //private void Awake()
-        //{
-        //    _elsaticBall.SetLevel(_startLevel);
-
-        //    ChangeSize(_elsaticBall.Size);
-        //}
-
-        //private void OnEnable()
-        //{
-        //    _player.LevelChanged += OnPlayerLevelChanged;
-        //}
-
-        //private void Start()
-        //{
-        //    _levelFrame.text = $"Lvl {Level}";
-        //}
-
-        //private void OnDisable()
-        //{
-        //    _player.LevelChanged -= OnPlayerLevelChanged;
-        //}
-
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.TryGetComponent(out Player player))
-        //    {
-        //        if (player.Level >= Level)
-        //        {
-        //            player.LevelUp(Level);
-        //            Destroy(gameObject);
-        //        }
-        //        else
-        //        {
-        //            player.Die();
-        //        }
-        //    }
-        //}
-
-        //private void ChangeSize(float size)
-        //{
-        //    transform.localScale = Vector3.one * size;
-
-        //    transform.localPosition = new Vector3(
-        //                transform.position.x,
-        //                transform.localScale.y / 2,
-        //                transform.localPosition.z);
-        //}
-
-        //private void OnPlayerLevelChanged()
-        //{
-        //    if (_player.Level >= Level)
-        //        _levelFrame.color = Color.green;
-        //    else
-        //        _levelFrame.color = Color.red;
-        //}
+        private void OnPlayerLevelChanged()
+        {
+            if (_player.ElasticBall.Level >= _elasticBall.Level)
+                _elasticBall.LevelFrame.color = Color.green;
+            else
+                _elasticBall.LevelFrame.color = Color.red;
+        }
     }
 }
