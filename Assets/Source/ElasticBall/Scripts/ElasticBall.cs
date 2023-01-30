@@ -7,7 +7,7 @@ namespace ElasticRush.Core
     {
         private const int MinLevel = 1;
         private const float MinSize = 1f;
-        private const float MaxSize = 3.5f;
+        private const float MaxSize = 3f;
 
         private int _level;
         private float _size;
@@ -32,7 +32,7 @@ namespace ElasticRush.Core
 
         private void ChangeSize()
         {
-            _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI) + 1;
+            _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI);
 
             SizeChanged?.Invoke(_size);
         }

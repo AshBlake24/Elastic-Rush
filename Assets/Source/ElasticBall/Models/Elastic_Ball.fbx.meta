@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: a1019202b04eee04a8a06c8036eea703
+guid: 46d129db88d5fbc49890ac2f45424046
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ElasticBand
+    second: {fileID: 2100000, guid: 141022a4b6b028447b691eeb2cdc0632, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

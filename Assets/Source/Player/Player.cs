@@ -23,7 +23,7 @@ namespace ElasticRush.Core
         private void OnValidate()
         {
             _elsaticBall.SetLevel(_startLevel);
-            _levelFrame.text = $"Lvl {Level}";
+            //_levelFrame.text = $"Lvl {Level}";
 
             OnSizeChanged(_elsaticBall.Size);
         }
@@ -79,10 +79,10 @@ namespace ElasticRush.Core
         {
             transform.localScale = Vector3.one * size;
 
-            transform.localPosition = new Vector3(
-                        transform.localPosition.x,
-                        transform.localScale.y / 2,
-                        transform.localPosition.z);
+            //transform.localPosition = new Vector3(
+            //            transform.localPosition.x,
+            //            transform.localScale.y / 2,
+            //            transform.localPosition.z);
         }
 
         private void OnLevelChanged(int obj)
