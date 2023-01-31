@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
-    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Collider))]
     public class Waypoint : MonoBehaviour
     {
         [SerializeField] private Waypoint _nextWaypoint;
@@ -11,6 +11,7 @@ namespace ElasticRush.Core
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Trigger");
             if (other.TryGetComponent(out WaypointFollower follower))
                 follower.SetNextWaypoint();
         }

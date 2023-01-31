@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1913d9192f7d65469549fb75258d249
+guid: 023040d78983f7046bd10df0fd0f678a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: d9ac79f5a604d3c4f8489367f04ece53, type: 2}
+      name: EndSegaPalette
+    second: {fileID: 2100000, guid: 496d08eca1f0ff246b270d5c20658f56, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
