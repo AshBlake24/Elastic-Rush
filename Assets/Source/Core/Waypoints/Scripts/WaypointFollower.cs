@@ -36,18 +36,9 @@ namespace ElasticRush.Core
                 SetNextWaypoint();
                 TryStartRotation();
             }
-        }
 
-        private void LateUpdate()
-        {
             if (_isRotating)
-            {
-                transform.rotation = Quaternion.Slerp(_startRotation, _targetRotation, _elapsedTime / _rotationLerpDuration);
-                _elapsedTime += Time.deltaTime;
-
-                if (_elapsedTime > _rotationLerpDuration)
-                    _isRotating = false;
-            }
+                Rotate();
         }
 
         public void StopMoving()
@@ -61,6 +52,15 @@ namespace ElasticRush.Core
                 transform.position,
                 _currentWaypoint.transform.position,
                 _speed * Time.deltaTime);
+        }
+
+        private void Rotate()
+        {
+            transform.rotation = Quaternion.Slerp(_startRotation, _targetRotation, _elapsedTime / _rotationLerpDuration);
+            _elapsedTime += Time.deltaTime;
+
+            if (_elapsedTime > _rotationLerpDuration)
+                _isRotating = false;
         }
 
         private void SetNextWaypoint()
