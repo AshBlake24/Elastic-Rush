@@ -13,7 +13,7 @@ namespace ElasticRush.Core
         {
             Debug.Log("Trigger");
             if (other.TryGetComponent(out WaypointFollower follower))
-                follower.SetNextWaypoint();
+                follower.UpdatePath();
         }
     }
 }
