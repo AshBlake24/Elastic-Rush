@@ -16,10 +16,12 @@ namespace ElasticRush.Collectables
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Player player))
-            {
-                OnCollected(player);
-            }
+            Player player = other.GetComponentInParent<Player>();
+
+            if (player == null)
+                return;
+
+            OnCollected(player);
         }
 
         protected abstract void OnCollected(Player player);
