@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,10 +5,11 @@ namespace ElasticRush.Core
 {
     public class WaypointFollower : MonoBehaviour
     {
+        private const float DistanceToChangeWaypoint = 0.01f;
+
         [SerializeField] private Waypoint _startWaypoint;
         [SerializeField] private float _speed;
-        [SerializeField] private float _rotationTime;
-        [SerializeField] private float _lerpDuration = 0.5f;
+        [SerializeField] private float _rotationLerpDuration = 0.5f;
 
         private Waypoint _currentWaypoint;
         private Coroutine _rotation;
@@ -19,14 +19,19 @@ namespace ElasticRush.Core
 
         private void Start()
         {
-            _currentWaypoint = _startWaypoint; 
+            _currentWaypoint = _startWaypoint;
             UpdatePath();
         }
 
-        private void LateUpdate()
+        private void Update()
         {
-            if (_currentWaypoint != null)
-                Move();
+            if (_currentWaypoint == null)
+                return;
+
+            Move();
+
+            if (Vector3.Distance(transform.position, _currentWaypoint.transform.position) < DistanceToChangeWaypoint)
+                UpdatePath();
         }
 
         public void StopMoving()
@@ -43,6 +48,14 @@ namespace ElasticRush.Core
                 SetDirection();
                 StartRotation();
             }
+        }
+
+        private void Move()
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                _currentWaypoint.transform.position,
+                _speed * Time.deltaTime);
         }
 
         private void SetNextWaypoint()
@@ -66,20 +79,15 @@ namespace ElasticRush.Core
             _rotation = StartCoroutine(Rotate());
         }
 
-        private void Move()
-        {
-            transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
-        }
-
         private IEnumerator Rotate()
         {
             float elapsedTime = 0;
             Quaternion startRotation = transform.rotation;
             Quaternion targetRotation = Quaternion.LookRotation(_direction, Vector3.up);
 
-            while (elapsedTime < _lerpDuration)
+            while (elapsedTime < _rotationLerpDuration)
             {
-                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / _lerpDuration);
+                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / _rotationLerpDuration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
