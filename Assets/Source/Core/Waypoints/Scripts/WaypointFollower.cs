@@ -37,6 +37,11 @@ namespace ElasticRush.Core
                 _currentWaypoint = null;
         }
 
+        public void StopMoving()
+        {
+            _currentWaypoint = null;
+        }
+
         private void Move()
         {
             transform.Translate(_direction * _speed * Time.deltaTime, Space.World);

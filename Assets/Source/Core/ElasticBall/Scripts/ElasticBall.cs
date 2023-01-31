@@ -6,10 +6,11 @@ namespace ElasticRush.Core
 {
     public class ElasticBall : MonoBehaviour, IReadonlyElasticBall
     {
+        private const int MinLevel = 1;
         private const float MinSize = 1f;
         private const float MaxSize = 3f;
 
-        [SerializeField, Min(1)] private int _level = 1;
+        [SerializeField, Min(MinLevel)] private int _level = MinLevel;
         [SerializeField] private TMP_Text _levelFrame;
 
         private float _size;
@@ -32,12 +33,38 @@ namespace ElasticRush.Core
 
         public void LevelUp(int levels = 1)
         {
-            if (levels < 1)
-                throw new ArgumentOutOfRangeException(nameof(levels), "levels cannot be less than 1");
+            if (levels < MinLevel)
+                throw new ArgumentOutOfRangeException(nameof(levels), $"levels cannot be less than {MinLevel}");
 
             int newLevel = _level + levels;
 
             SetLevel(newLevel);
+            ChangeSize();
+        }
+
+        public bool TryReduceLevel(int levels)
+        {
+            if (levels < MinLevel)
+                throw new ArgumentOutOfRangeException(nameof(levels), $"levels cannot be less than {MinLevel}");
+
+            int newLevel = _level - levels;
+
+            if (newLevel >= MinLevel)
+            {
+                SetLevel(newLevel);
+                ChangeSize();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void ResetLevel()
+        {
+            SetLevel(MinLevel);
             ChangeSize();
         }
 
