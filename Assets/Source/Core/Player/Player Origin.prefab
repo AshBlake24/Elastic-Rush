@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b07801c54a1d2479c552d403695f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 5166514861764865624}
+  _player: {fileID: 0}
 --- !u!1001 &5339727424952441474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,7 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c2081f836c94648be1cbaa25b15f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _elasticBall: {fileID: 0}
+  _originWaypointFollower: {fileID: 5388181374263175126}
+  _elasticBall: {fileID: 9002086900109220616}
 --- !u!114 &5339727424169579214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,3 +534,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensitivty: 0.4
   _xAxisBounds: 0.5
+--- !u!114 &9002086900109220616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
+  m_PrefabInstance: {fileID: 5339727424952441474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546452631447483618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1f4468543b2b248b0657b6c8557304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

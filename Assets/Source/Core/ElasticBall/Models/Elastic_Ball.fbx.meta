@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Atlas
+    second: {fileID: 2100000, guid: d9ac79f5a604d3c4f8489367f04ece53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ElasticBand
     second: {fileID: 2100000, guid: 141022a4b6b028447b691eeb2cdc0632, type: 2}
   - first:
