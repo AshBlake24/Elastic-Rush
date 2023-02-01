@@ -73,7 +73,7 @@ namespace ElasticRush.Core
             _level = level;
 
             if (_levelFrame != null)
-                _levelFrame.text = $"Lvl {_level}";
+                _levelFrame.text = $"LVL {_level}";
 
             LevelChanged?.Invoke();
         }

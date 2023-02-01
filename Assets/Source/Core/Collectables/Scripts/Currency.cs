@@ -11,6 +11,7 @@ namespace ElasticRush.Collectables
         protected override void OnCollected(Player player)
         {
             player.ExchageLevelsForScore(_levelsCost, _scoreAmount);
+            Destroy(gameObject);
         }
     }
 }
