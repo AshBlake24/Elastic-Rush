@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ElasticRush
+namespace ElasticRush.Core
 {
     public abstract class Enemy : MonoBehaviour
     {
