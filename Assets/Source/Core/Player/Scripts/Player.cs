@@ -10,7 +10,9 @@ namespace ElasticRush.Core
         [SerializeField] private ElasticBall _elasticBall;
 
         private int _score;
+        private bool _isFinished;
 
+        public event Action LevelCompleted;
         public event Action ScoreChanged;
         public event Action Died;
 
@@ -19,13 +21,13 @@ namespace ElasticRush.Core
 
         private void Start()
         {
+            _isFinished = false;
             ScoreChanged?.Invoke();
         }
 
-        public void LevelUp(int level)
-        {
-            _elasticBall.LevelUp(level);
-        }
+        public void Finish() => _isFinished = true;
+
+        public void LevelUp(int level) => _elasticBall.LevelUp(level);
 
         public void ExchageLevelsForScore(int levels, int score)
         {
@@ -38,16 +40,18 @@ namespace ElasticRush.Core
             {
                 _score += score;
                 ScoreChanged?.Invoke();
-                Die();
+                Destroy();
             }
         }
 
-        public void Die()
+        public void Destroy()
         {
-            _originWaypointFollower.StopMoving();
+            if (_isFinished)
+                LevelCompleted?.Invoke();
+            else
+                Died?.Invoke();
 
-            Debug.Log("Player Died");
-            Died?.Invoke();
+            _originWaypointFollower.StopMoving();
             Destroy(gameObject);
         }
 

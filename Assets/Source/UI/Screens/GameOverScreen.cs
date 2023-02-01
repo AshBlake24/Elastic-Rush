@@ -1,4 +1,5 @@
 using ElasticRush.Core;
+using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.UI
@@ -7,6 +8,7 @@ namespace ElasticRush.UI
     {
         [SerializeField] private Player _player;
         [SerializeField] private GameObject _screen;
+        [SerializeField] private TMP_Text _score;
 
         private void Awake()
         {
@@ -26,6 +28,8 @@ namespace ElasticRush.UI
         private void OnPlayerDied()
         {
             _screen.SetActive(true);
+            _score.text = $"Score: {_player.Score}";
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace ElasticRush.Core
 
             if (player != null)
             {
-                player.Die();
+                player.Destroy();
             }
         }
     }

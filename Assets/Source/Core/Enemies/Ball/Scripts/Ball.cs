@@ -32,7 +32,7 @@ namespace ElasticRush.Core
             }
             else
             {
-                _player.Die();
+                _player.Destroy();
             }
         }
 
