@@ -1,19 +1,26 @@
+using ElasticRush.Utilities;
+using System;
 using UnityEngine;
 
 namespace ElasticRush.Core
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField, Range(0.1f, 3f)] private float _sensitivty;
+        [SerializeField] private float _minSensitivty = 0.1f;
+        [SerializeField] private float _maxSensitivty = 3.0f;
+        [SerializeField] private float _startSensitivty;
         [SerializeField] private float _xAxisBounds;
 
+        private Sensitivity _sensitivity;
         private PlayerInput _input;
         private bool _isDragging;
 
+        public Sensitivity Sensitivity => _sensitivity;
 
         private void Awake()
         {
             _input = new PlayerInput();
+            _sensitivity = new Sensitivity(_minSensitivty, _maxSensitivty, _startSensitivty);
         }
 
         private void OnEnable()
@@ -44,7 +51,7 @@ namespace ElasticRush.Core
 
             if (moveDeltaAlongX != 0)
             {
-                float scaledMoveDeltaAlongX = moveDeltaAlongX * _sensitivty * Time.deltaTime;
+                float scaledMoveDeltaAlongX = moveDeltaAlongX * _sensitivity.Value * Time.deltaTime;
 
                 var localPosition = new Vector3(
                     Mathf.Clamp(transform.localPosition.x + scaledMoveDeltaAlongX, -_xAxisBounds, _xAxisBounds),
