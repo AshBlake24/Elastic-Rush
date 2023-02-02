@@ -4,30 +4,30 @@ using UnityEngine;
 
 namespace ElasticRush.UI
 {
-    public class GameOverScreen : MonoBehaviour
+    public class LevelCompletedScreen : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        [SerializeField] private GameObject _gameOverScreen;
+        [SerializeField] private GameObject _levelCompletedScreen;
         [SerializeField] private TMP_Text _score;
 
         private void Awake()
         {
-            _gameOverScreen.SetActive(false);
+            _levelCompletedScreen.SetActive(false);
         }
 
         private void OnEnable()
         {
-            _player.Died += OnPlayerDied;
+            _player.LevelCompleted += OnLevelCompleted;
         }
 
         private void OnDisable()
         {
-            _player.Died -= OnPlayerDied;
+            _player.LevelCompleted -= OnLevelCompleted;
         }
 
-        private void OnPlayerDied()
+        private void OnLevelCompleted()
         {
-            _gameOverScreen.SetActive(true);
+            _levelCompletedScreen.SetActive(true);
             _score.text = $"BestScore: {_player.Score}";
         }
     }
