@@ -8,7 +8,6 @@ namespace ElasticRush.UI
     {
         [SerializeField] private Player _player;
         [SerializeField] private GameObject _levelCompletedScreen;
-        [SerializeField] private TMP_Text _score;
 
         private void Awake()
         {
@@ -28,7 +27,6 @@ namespace ElasticRush.UI
         private void OnLevelCompleted()
         {
             _levelCompletedScreen.SetActive(true);
-            _score.text = $"BestScore: {_player.Score}";
         }
     }
 }

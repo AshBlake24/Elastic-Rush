@@ -1,4 +1,5 @@
 using ElasticRush.Core;
+using ElasticRush.Utilities;
 using TMPro;
 using UnityEngine;
 
@@ -7,21 +8,23 @@ namespace ElasticRush.UI
     public class Score : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        [SerializeField] private TMP_Text _score;
+        [SerializeField] private TMP_Text _currentScore;
+        [SerializeField] private TMP_Text _bestScore;
+
+        private PlayerData _playerData;
 
         private void OnEnable()
         {
-            _player.ScoreChanged += OnScoreChanged;
+            UpdatePlayerData();
+
+            _currentScore.text = _player.Score.ToString();
+            _bestScore.text = $"Best: {_playerData.BestScore}";
         }
 
-        private void OnDisable()
+        private void UpdatePlayerData()
         {
-            _player.ScoreChanged -= OnScoreChanged;
-        }
-
-        private void OnScoreChanged()
-        {
-            _score.text = $"{_player.Score}";
+            SaveSystem.Player.Save(_player);
+            _playerData = SaveSystem.Player.Load();
         }
     }
 }
