@@ -21,7 +21,7 @@ namespace ElasticRush.UI
 
         private void OnScoreChanged()
         {
-            _score.text = $"$: {_player.Score}";
+            _score.text = $"{_player.Score}";
         }
     }
 }

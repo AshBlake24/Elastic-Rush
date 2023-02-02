@@ -4,7 +4,7 @@ namespace ElasticRush.Utilities
     {
         public static class PlayerData
         {
-            public const string Score = "Score";
+            public const string Score = "BestScore";
         }
     }
 }
