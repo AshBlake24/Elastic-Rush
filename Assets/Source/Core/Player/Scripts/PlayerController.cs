@@ -1,5 +1,4 @@
 using ElasticRush.Utilities;
-using System;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -11,11 +10,12 @@ namespace ElasticRush.Core
         [SerializeField] private float _startSensitivty;
         [SerializeField] private float _xAxisBounds;
 
-        private Sensitivity _sensitivity;
         private PlayerInput _input;
+        private Sensitivity _sensitivity;
         private bool _isDragging;
 
         public Sensitivity Sensitivity => _sensitivity;
+        public PlayerInput Input => _input;
 
         private void Awake()
         {
