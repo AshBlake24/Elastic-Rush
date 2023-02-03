@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -6,6 +7,7 @@ namespace ElasticRush.Core
     {
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private WaypointFollower _follower;
+        [SerializeField] private TMP_Text _startInfo;
 
         private PlayerInput _input;
 
@@ -16,6 +18,7 @@ namespace ElasticRush.Core
 
         private void Start()
         {
+            _startInfo.gameObject.SetActive(true);
             _follower.enabled = false;
             _input = _playerController.Input;
             _input.Player.Click.started += (ctx) => OnClick();
@@ -23,6 +26,7 @@ namespace ElasticRush.Core
 
         private void OnClick()
         {
+            _startInfo.gameObject.SetActive(false);
             _follower.enabled = true;
             enabled = false;
         }
