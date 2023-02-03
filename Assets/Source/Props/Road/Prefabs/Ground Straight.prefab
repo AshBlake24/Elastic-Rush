@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Straight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1967881073249187061, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.75
@@ -71,10 +75,18 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4377897974861811950, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4472344520923198108, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 4472344520923198108, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 243372651874515013, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
     - {fileID: 1566268550070026855, guid: cf408b6843b9c2a4db4488bcb2d8e035, type: 3}
