@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.44392857, g: 0.49892858, b: 0.55, a: 1}
+  m_AmbientEquatorColor: {r: 0.42187497, g: 0.4335937, b: 0.5, a: 1}
+  m_AmbientGroundColor: {r: 0.07692308, g: 0.07692308, b: 0.1, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -912,7 +912,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 65
+      value: LVL 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
@@ -1058,6 +1058,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 976897834}
+    - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
+      propertyPath: m_text
+      value: LVL 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
 --- !u!1001 &279742915
@@ -1665,6 +1669,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 976897834}
+    - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
+      propertyPath: m_text
+      value: LVL 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
 --- !u!1 &476478472
@@ -2396,8 +2404,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.95707315, b: 0.84000003, a: 1}
+  m_Intensity: 0.75
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2436,7 +2444,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2524,7 +2532,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 32
+      value: LVL 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
@@ -2954,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 16
+      value: LVL 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
@@ -6215,7 +6223,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 128
+      value: LVL 514
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
@@ -6356,7 +6364,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 514
+      value: LVL 94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
@@ -7412,6 +7420,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 976897834}
+    - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
+      propertyPath: m_text
+      value: LVL 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
 --- !u!1 &2031465405
@@ -7530,7 +7542,7 @@ PrefabInstance:
       objectReference: {fileID: 976897834}
     - target: {fileID: 7571727674999527912, guid: e30af90294dbe054b88b045d095008cf, type: 3}
       propertyPath: m_text
-      value: LVL 10
+      value: LVL 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e30af90294dbe054b88b045d095008cf, type: 3}
