@@ -150,10 +150,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lvl 2833
+  m_text: LVL 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 92770825bc329df48a61cfe27352bba9, type: 2}
+  m_sharedMaterial: {fileID: 5779605663750060187, guid: 92770825bc329df48a61cfe27352bba9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.35
+  m_fontSize: 45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startWaypoint: {fileID: 0}
-  _speed: 10
-  _rotationTime: 120
+  _speed: 3
+  _rotationLerpDuration: 0.2
 --- !u!65 &407984876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -422,15 +422,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_LocalPosition.x
@@ -471,10 +471,6 @@ PrefabInstance:
     - target: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
-      propertyPath: _level
-      value: 2833
       objectReference: {fileID: 0}
     - target: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: _levelFrame
@@ -518,8 +514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e364488f76f0ae4b8c233e6a74d3696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivty: 0.4
-  _xAxisBounds: 0.5
+  _minSensitivty: 0.1
+  _maxSensitivty: 2
+  _startSensitivty: 0.4
+  _xAxisBounds: 0.75
 --- !u!114 &9002086900109220616 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
