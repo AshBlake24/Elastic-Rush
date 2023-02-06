@@ -1246,8 +1246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 976897834}
-  _currentScore: {fileID: 1027714312}
-  _bestScore: {fileID: 1482997087}
+  _currentScoreFrame: {fileID: 1027714312}
+  _bestScoreFrame: {fileID: 1482997087}
 --- !u!1 &409946106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3165,8 +3165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 976897834}
-  _currentScore: {fileID: 1214641484}
-  _bestScore: {fileID: 1154984478}
+  _currentScoreFrame: {fileID: 1214641484}
+  _bestScoreFrame: {fileID: 1154984478}
 --- !u!1 &1154984476
 GameObject:
   m_ObjectHideFlags: 0

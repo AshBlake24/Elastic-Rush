@@ -8,23 +8,23 @@ namespace ElasticRush.UI
     public class Score : MonoBehaviour
     {
         [SerializeField] private Player _player;
-        [SerializeField] private TMP_Text _currentScore;
-        [SerializeField] private TMP_Text _bestScore;
+        [SerializeField] private TMP_Text _currentScoreFrame;
+        [SerializeField] private TMP_Text _bestScoreFrame;
 
-        private PlayerData _playerData;
+        private int _bestScore;
 
         private void OnEnable()
         {
-            UpdatePlayerData();
+            UpdateBestScore();
 
-            _currentScore.text = _player.Score.ToString();
-            _bestScore.text = $"Best: {_playerData.BestScore}";
+            _currentScoreFrame.text = _player.Score.ToString();
+            _bestScoreFrame.text = $"Best: {_bestScore}";
         }
 
-        private void UpdatePlayerData()
+        private void UpdateBestScore()
         {
             SaveSystem.Player.Save(_player);
-            _playerData = SaveSystem.Player.Load();
+            _bestScore = SaveSystem.Player.Load();
         }
     }
 }
