@@ -29,14 +29,17 @@ namespace ElasticRush.Core
             if (_currentWaypoint == null)
                 return;
 
-            Move();
-
             if (Vector3.Distance(transform.position, _currentWaypoint.transform.position) < DistanceToChangeWaypoint)
             {
                 SetNextWaypoint();
                 TryStartRotation();
             }
 
+            Move();            
+        }
+
+        private void LateUpdate()
+        {
             if (_isRotating)
                 Rotate();
         }
@@ -60,7 +63,10 @@ namespace ElasticRush.Core
             _elapsedTime += Time.deltaTime;
 
             if (_elapsedTime > _rotationLerpDuration)
+            {
+                _elapsedTime = 0;
                 _isRotating = false;
+            }
         }
 
         private void SetNextWaypoint()

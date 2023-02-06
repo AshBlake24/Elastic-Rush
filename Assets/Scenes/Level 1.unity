@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 641821603}
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -531,7 +531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &195423911
 Transform:
   m_ObjectHideFlags: 0
@@ -3563,10 +3563,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Origin
       objectReference: {fileID: 0}
+    - target: {fileID: 5348014713253868577, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: _startInfo
+      value: 
+      objectReference: {fileID: 1846636729}
+    - target: {fileID: 5388181374263175126, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: _degrees
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5388181374263175126, guid: 8e59acb016e60a843a890696e658caca, type: 3}
       propertyPath: _startWaypoint
       value: 
       objectReference: {fileID: 955484580}
+    - target: {fileID: 5388181374263175126, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: _rotationLerpDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e59acb016e60a843a890696e658caca, type: 3}
 --- !u!114 &976897834 stripped
@@ -6520,37 +6532,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803228765}
   m_CullTransparentMesh: 1
---- !u!1 &1806682216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5339727425559324195, guid: 8e59acb016e60a843a890696e658caca, type: 3}
-  m_PrefabInstance: {fileID: 976897833}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1806682217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806682216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11bd3e7f48eed9d44817009ab0baeb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 976897835}
-  _follower: {fileID: 1806682220}
-  _startInfo: {fileID: 1846636729}
---- !u!114 &1806682220 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5388181374263175126, guid: 8e59acb016e60a843a890696e658caca, type: 3}
-  m_PrefabInstance: {fileID: 976897833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806682216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af79e0763dba73d449f45a2e0cd5533d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1808827412
 PrefabInstance:
   m_ObjectHideFlags: 0
