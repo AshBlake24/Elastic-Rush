@@ -23,8 +23,8 @@ namespace ElasticRush.UI
 
         private void UpdateBestScore()
         {
-            SaveSystem.Player.Save(_player);
-            _bestScore = SaveSystem.Player.Load();
+            SaveSystem.PlayerScore.Save(_player);
+            _bestScore = SaveSystem.PlayerScore.Load();
         }
     }
 }

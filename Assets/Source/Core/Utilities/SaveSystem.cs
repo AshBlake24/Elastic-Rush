@@ -1,5 +1,5 @@
-using ElasticRush.Core;
 using System;
+using ElasticRush.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +7,12 @@ namespace ElasticRush.Utilities
 {
     public static class SaveSystem
     {
-        public const string BestScore = "BestScore";
-        public const string CurrentStage = "CurrentStage";
+        private const string BestScore = "BestScore";
+        private const string CurrentStage = "CurrentStage";
 
-        public static class Player
+        public static class PlayerScore
         {
-            public static void Save(Core.Player player)
+            public static void Save(Player player)
             {
                 if (player == null)
                     throw new ArgumentNullException(nameof(player), "Player can't be null");
@@ -47,13 +47,19 @@ namespace ElasticRush.Utilities
 
             public static string Load()
             {
-                string currentStage = Config.StartLevel;
+                string currentStage = StageManager.StartLevel;
 
                 if (PlayerPrefs.HasKey(CurrentStage))
                     currentStage = PlayerPrefs.GetString(CurrentStage);
 
                 return currentStage;
             }
+        }
+
+        public static void SaveAll(Player player)
+        {
+            PlayerScore.Save(player);
+            Stage.Save();
         }
     }
 }
