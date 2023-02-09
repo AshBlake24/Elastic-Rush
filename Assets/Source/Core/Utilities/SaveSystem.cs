@@ -7,11 +7,10 @@ namespace ElasticRush.Utilities
 {
     public static class SaveSystem
     {
-        private const string BestScore = "BestScore";
-        private const string CurrentStage = "CurrentStage";
-
         public static class PlayerScore
         {
+            private const string BestScore = nameof(BestScore);
+
             public static void Save(Player player)
             {
                 if (player == null)
@@ -38,6 +37,8 @@ namespace ElasticRush.Utilities
 
         public static class Stage
         {
+            private const string CurrentStage = nameof(CurrentStage);
+
             public static void Save()
             {
                 PlayerPrefs.SetString(CurrentStage, SceneManager.GetActiveScene().name);
@@ -53,6 +54,27 @@ namespace ElasticRush.Utilities
                     currentStage = PlayerPrefs.GetString(CurrentStage);
 
                 return currentStage;
+            }
+        }
+
+        public static class Settings
+        {
+            private const string Sensitivity = nameof(Sensitivity);
+
+            public static void SaveSensitivity(float value)
+            {
+                PlayerPrefs.SetFloat(Sensitivity, value);
+                PlayerPrefs.Save();
+            }
+
+            public static float LoadSensitivity()
+            {
+                float sensitivity = Utilities.Sensitivity.DefaultValue;
+
+                if (PlayerPrefs.HasKey(Sensitivity))
+                    sensitivity = PlayerPrefs.GetFloat(Sensitivity);
+
+                return sensitivity;
             }
         }
 

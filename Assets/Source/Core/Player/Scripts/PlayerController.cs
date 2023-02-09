@@ -7,7 +7,6 @@ namespace ElasticRush.Core
     {
         [SerializeField] private float _minSensitivty = 0.1f;
         [SerializeField] private float _maxSensitivty = 3.0f;
-        [SerializeField] private float _startSensitivty;
         [SerializeField] private float _xAxisBounds;
 
         private PlayerInput _input;
@@ -19,8 +18,9 @@ namespace ElasticRush.Core
 
         private void Awake()
         {
+            float sensitivity = SaveSystem.Settings.LoadSensitivity();
+            _sensitivity = new Sensitivity(_minSensitivty, _maxSensitivty, sensitivity);
             _input = new PlayerInput();
-            _sensitivity = new Sensitivity(_minSensitivty, _maxSensitivty, _startSensitivty);
         }
 
         private void OnEnable()

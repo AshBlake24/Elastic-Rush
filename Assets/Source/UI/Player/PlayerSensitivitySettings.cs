@@ -1,4 +1,5 @@
 using ElasticRush.Core;
+using ElasticRush.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,7 @@ namespace ElasticRush.UI
         {
             _controller.Sensitivity.TryChangeSensitivity(value);
             _currentValue.text = string.Format("{0:0.0}", _controller.Sensitivity.Value);
+            SaveSystem.Settings.SaveSensitivity(_controller.Sensitivity.Value);
         }
     }
 }
