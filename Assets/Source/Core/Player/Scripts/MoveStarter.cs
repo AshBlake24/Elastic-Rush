@@ -1,3 +1,4 @@
+using ElasticRush.Utilities;
 using TMPro;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ namespace ElasticRush.Core
 
         private void OnClick()
         {
+            if (Helpers.IsOverUI())
+                return;
+
             _playerAnimator.SetBool(AnimatorPlayerController.States.Rolling, true);
             _startInfo.gameObject.SetActive(false);
             _follower.enabled = true;
