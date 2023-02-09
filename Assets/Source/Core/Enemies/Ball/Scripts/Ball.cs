@@ -27,7 +27,7 @@ namespace ElasticRush.Core
 
             if (_player.ElasticBall.Level >= _elasticBall.Level)
             {
-                _player.LevelUp(_elasticBall.Level);
+                _player.AbsorbEnemy(_elasticBall.Level);
                 Destroy(gameObject);
             }
             else

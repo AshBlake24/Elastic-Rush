@@ -13,6 +13,7 @@ namespace ElasticRush.Core
         private bool _isFinished;
 
         public event Action LevelCompleted;
+        public event Action EnemyAbsorbed;
         public event Action ScoreChanged;
         public event Action Died;
 
@@ -28,6 +29,12 @@ namespace ElasticRush.Core
         public void Finish() => _isFinished = true;
 
         public void LevelUp(int level) => _elasticBall.LevelUp(level);
+
+        public void AbsorbEnemy(int enemyLevel)
+        {
+            LevelUp(enemyLevel);
+            EnemyAbsorbed?.Invoke();
+        }
 
         public void ExchageLevelsForScore(int levels, int score)
         {

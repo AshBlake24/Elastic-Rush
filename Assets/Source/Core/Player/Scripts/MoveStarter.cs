@@ -5,6 +5,7 @@ namespace ElasticRush.Core
 {
     public class MoveStarter : MonoBehaviour
     {
+        [SerializeField] private Animator _playerAnimator;
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private WaypointFollower _follower;
         [SerializeField] private TMP_Text _startInfo;
@@ -26,6 +27,7 @@ namespace ElasticRush.Core
 
         private void OnClick()
         {
+            _playerAnimator.SetBool(AnimatorPlayerController.States.Rolling, true);
             _startInfo.gameObject.SetActive(false);
             _follower.enabled = true;
             enabled = false;

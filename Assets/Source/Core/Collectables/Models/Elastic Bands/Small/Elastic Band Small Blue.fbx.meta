@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: e66d484e124722d49bbbee85bdd4e850
+guid: cb9ace61336586b4db7e38bd824c758a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Atlas
-    second: {fileID: 2100000, guid: 496d08eca1f0ff246b270d5c20658f56, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
