@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,9 +18,9 @@ namespace ElasticRush
                 Destroy(gameObject);
         }
 
-        public void ChangeScene(string nextScene, string currentScene)
+        public void ChangeScene(string nextScene, string previousScene)
         {
-            UnloadScene(currentScene);
+            UnloadScene(previousScene);
             StartCoroutine(LoadScene(nextScene));
         }
 
