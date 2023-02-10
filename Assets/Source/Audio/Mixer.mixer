@@ -15,7 +15,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 2089958674809172255}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 6
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -34,7 +34,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 3643494542192950035}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -53,7 +53,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 5421042b959cd3546b51b9034a1ef66f
+    name: BG Music
+  - guid: def0891ae33f84e41b232148e0067c3f
+    name: SFX
   m_AudioMixerGroupViews:
   - guids:
     - add698c78fb8e4f4c9561b6d8bc2fc12
@@ -79,7 +83,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 3
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -106,7 +110,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 56168fbf7a634a74f9bb245d28cac2cc
-  m_FloatValues: {}
+  m_FloatValues:
+    5421042b959cd3546b51b9034a1ef66f: 0
   m_TransitionOverrides: {}
 --- !u!244 &2089958674809172255
 AudioMixerEffectController:

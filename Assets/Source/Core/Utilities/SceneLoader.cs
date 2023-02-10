@@ -18,13 +18,18 @@ namespace ElasticRush
                 Destroy(gameObject);
         }
 
+        public void LoadScene(string sceneName)
+        {
+            StartCoroutine(StartLoading(sceneName));
+        }
+
         public void ChangeScene(string nextScene, string previousScene)
         {
             UnloadScene(previousScene);
-            StartCoroutine(LoadScene(nextScene));
+            StartCoroutine(StartLoading(nextScene));
         }
 
-        private IEnumerator LoadScene(string sceneName)
+        private IEnumerator StartLoading(string sceneName)
         {
             var loadedScene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
