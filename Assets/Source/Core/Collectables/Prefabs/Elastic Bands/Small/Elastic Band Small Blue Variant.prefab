@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.6165639
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.9386094
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_Name
-      value: Elastic Band Small Blue
+      value: Elastic Band Small Blue Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb9ace61336586b4db7e38bd824c758a, type: 3}
       propertyPath: m_Layer
@@ -99,4 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f064c7a43ecbe5544889d5b5ceae8420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioPlayer:
+    AudioSource: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: e1aa8f6ac6d7cad4992655bc9540cc16, type: 3}
   _level: 1

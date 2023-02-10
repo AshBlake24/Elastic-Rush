@@ -1,3 +1,4 @@
+using ElasticRush.Audio;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -5,6 +6,7 @@ namespace ElasticRush.Core
     public abstract class Enemy : MonoBehaviour
     {
         [SerializeField] protected TriggerObserver TriggerObserver;
+        [SerializeField] protected AudioPlayer AudioPlayer;
 
         protected virtual void OnEnable()
         {

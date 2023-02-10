@@ -1,3 +1,4 @@
+using ElasticRush.Audio;
 using ElasticRush.Core;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace ElasticRush.Collectables
     [RequireComponent(typeof(Collider))]
     public abstract class CollectableItem : MonoBehaviour
     {
+        [SerializeField] protected AudioPlayer AudioPlayer;
+
         private void OnValidate()
         {
             Collider collider = GetComponent<Collider>();

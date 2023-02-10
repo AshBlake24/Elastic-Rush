@@ -412,6 +412,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerObserver: {fileID: 5978669444924481932}
+  AudioPlayer:
+    AudioSource: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: c44736619f5bd984c97ce4306c008182, type: 3}
   _player: {fileID: 0}
   _elasticBall: {fileID: 1965847844672842807}
 --- !u!1 &9051112178916364422 stripped
