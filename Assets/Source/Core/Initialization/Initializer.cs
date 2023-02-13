@@ -1,6 +1,6 @@
-using ElasticRush.Utilities;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Agava.YandexGames;
 
 namespace ElasticRush
 {
@@ -8,8 +8,18 @@ namespace ElasticRush
     {
         [SerializeField] private string _startScene;
 
-        private void Start()
+        private void Awake()
         {
+            YandexGamesSdk.CallbackLogging = true;
+        }
+
+        private IEnumerator Start()
+        {
+            yield return YandexGamesSdk.Initialize();
+
+            if (PlayerAccount.HasPersonalProfileDataPermission == false)
+                PlayerAccount.RequestPersonalProfileDataPermission();
+
             SceneLoader.Instance.LoadScene(_startScene);
         }
     }

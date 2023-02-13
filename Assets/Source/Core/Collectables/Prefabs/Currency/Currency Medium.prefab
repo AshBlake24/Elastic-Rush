@@ -95,5 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47df10e086b9df41958213596c86f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioPlayer:
+    AudioSource: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: a64d7e8a1fa740d4584e462c507eda6a, type: 3}
   _levelsCost: 10
   _scoreAmount: 3

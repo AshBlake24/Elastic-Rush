@@ -27,7 +27,7 @@ namespace ElasticRush.Core
 
             if (_player.ElasticBall.Level >= _elasticBall.Level)
             {
-                AudioPlayer.Play();
+                AudioPlayer.PlayClip();
                 _player.AbsorbEnemy(_elasticBall.Level);
                 Destroy(gameObject);
             }

@@ -8,7 +8,7 @@ namespace ElasticRush.Audio
         public AudioSource AudioSource;
         public AudioClip AudioClip;
 
-        public void Play()
+        public void PlayClip()
         {
             AudioSource?.PlayOneShot(AudioClip);
         }

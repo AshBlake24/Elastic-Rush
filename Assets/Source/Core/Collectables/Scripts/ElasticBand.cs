@@ -9,7 +9,7 @@ namespace ElasticRush.Collectables
 
         protected override void OnCollected(Player player)
         {
-            AudioPlayer.Play();
+            AudioPlayer.PlayClip();
             player.LevelUp(_level);
             Destroy(gameObject);
         }
