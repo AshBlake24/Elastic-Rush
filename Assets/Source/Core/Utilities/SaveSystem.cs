@@ -1,7 +1,8 @@
 using System;
-using ElasticRush.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Agava.YandexGames;
+using ElasticRush.Core;
 
 namespace ElasticRush.Utilities
 {
@@ -19,9 +20,13 @@ namespace ElasticRush.Utilities
                 int lastBestScore = Load();
 
                 if (player.Score > lastBestScore)
+                {
+#if UNITY_WEBGL || !UNITY_EDITOR
+                    Leaderboard.SetScore(Config.LeaderboardName, player.Score);
+#endif
                     PlayerPrefs.SetFloat(BestScore, player.Score);
-
-                PlayerPrefs.Save();
+                    PlayerPrefs.Save();
+                }
             }
 
             public static int Load()

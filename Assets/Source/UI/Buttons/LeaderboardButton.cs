@@ -8,6 +8,7 @@ namespace ElasticRush
     public class LeaderboardButton : Button
     {
         [SerializeField] private LeaderboardView _leaderboardView;
+        [SerializeField] private GameObject _authorizationScreen;
 
         protected override void OnButtonClick()
         {
@@ -15,9 +16,9 @@ namespace ElasticRush
                 return;
 
             if (PlayerAccount.IsAuthorized)
-            {
                 _leaderboardView.gameObject.SetActive(true);
-            }
+            else
+                _authorizationScreen.SetActive(true);
         }
     }
 }

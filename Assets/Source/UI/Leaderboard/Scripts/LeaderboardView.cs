@@ -1,11 +1,11 @@
 using UnityEngine;
 using Agava.YandexGames;
+using ElasticRush.Utilities;
 
 namespace ElasticRush.UI
 {
     public class LeaderboardView : MonoBehaviour
     {
-        private const string LeaderboardName = "Leaderboard";
         private const int TopPlayersCount = 10;
 
         [SerializeField] private LeaderboardEntryView _leaderboardEntryViewPrefab;
@@ -13,7 +13,7 @@ namespace ElasticRush.UI
 
         private void OnEnable()
         {
-            Leaderboard.GetEntries(LeaderboardName, (result) =>
+            Leaderboard.GetEntries(Config.LeaderboardName, (result) =>
             {
                 foreach (var entry in result.entries)
                 {
