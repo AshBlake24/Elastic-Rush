@@ -15,12 +15,15 @@ namespace ElasticRush
 
         private IEnumerator Start()
         {
+#if !UNITY_WEBGL || UNITY_EDITOR
+            SceneLoader.Instance.LoadScene(_startScene); // temporary
+            yield break;
+#endif
+
             yield return YandexGamesSdk.Initialize();
 
-            if (PlayerAccount.HasPersonalProfileDataPermission == false)
-                PlayerAccount.RequestPersonalProfileDataPermission();
-
-            SceneLoader.Instance.LoadScene(_startScene);
+            if (YandexGamesSdk.IsInitialized)
+                SceneLoader.Instance.LoadScene(_startScene);
         }
     }
 }
