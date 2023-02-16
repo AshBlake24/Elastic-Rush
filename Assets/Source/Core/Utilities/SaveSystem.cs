@@ -38,20 +38,21 @@ namespace ElasticRush.Utilities
         {
             private const string BestScore = nameof(BestScore);
 
-            public static void Save(Player player)
+            public static void Save(Player player, int score)
             {
                 if (player == null)
                     throw new ArgumentNullException(nameof(player), "Player can't be null");
 
                 int lastBestScore = Load();
-                int newBestScore = lastBestScore + player.Score;
 
+                if (lastBestScore < score)
+                {
 #if UNITY_WEBGL && !UNITY_EDITOR
                 Leaderboard.SetScore(Config.Leaderboard.LeaderboardName, newBestScore);
 #endif
-
-                PlayerPrefs.SetFloat(BestScore, newBestScore);
-                PlayerPrefs.Save();
+                    PlayerPrefs.SetFloat(BestScore, score);
+                    PlayerPrefs.Save();
+                }
             }
 
             public static int Load()

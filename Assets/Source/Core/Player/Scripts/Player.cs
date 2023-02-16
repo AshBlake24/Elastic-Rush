@@ -57,7 +57,7 @@ namespace ElasticRush.Core
         {
             if (_isFinished)
             {
-                UpdatePlayerScore();
+                UpdatePlayerBestScore();
                 LevelCompleted?.Invoke();
             }
             else
@@ -76,9 +76,13 @@ namespace ElasticRush.Core
             ScoreChanged?.Invoke();
         }
 
-        private void UpdatePlayerScore()
+        public void AddExtraScore() => UpdatePlayerBestScore();
+
+        private void UpdatePlayerBestScore()
         {
-            SaveSystem.PlayerScore.Save(this);
+            int lastBestScore = SaveSystem.PlayerScore.Load();
+            int newBestScore = lastBestScore + _score;
+            SaveSystem.PlayerScore.Save(this, newBestScore);
         }
     }
 }

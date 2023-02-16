@@ -23,6 +23,6 @@ namespace ElasticRush.Core
 
         private void Unmute() => _master.Unmute();
 
-        private void Reward() => SaveSystem.PlayerScore.Save(_player);
+        private void Reward() => _player.AddExtraScore();
     }
 }
