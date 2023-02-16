@@ -46,7 +46,8 @@ namespace ElasticRush
 
             SetLoadedSceneActive(sceneName);
 
-            LeanLocalization.SetCurrentLanguageAll(Config.Languages.CurrentLanguage);
+            LeanLocalization.SetCurrentLanguageAll(Config.Language.CurrentLanguage);
+            SaveSystem.Stage.Save(sceneName);
         }
 
         private void SetLoadedSceneActive(string sceneName)

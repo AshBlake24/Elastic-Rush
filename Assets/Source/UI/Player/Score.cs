@@ -3,6 +3,7 @@ using ElasticRush.Core;
 using ElasticRush.Utilities;
 using Lean.Localization;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace ElasticRush.UI
 {
@@ -15,7 +16,7 @@ namespace ElasticRush.UI
         [SerializeField] private TMP_Text _currentScoreFrame;
         [SerializeField] private TMP_Text _bestScoreFrame;
 
-        private int _bestScore;
+        private int _bestStageScore;
 
         private void OnEnable()
         {
@@ -25,13 +26,14 @@ namespace ElasticRush.UI
             string best = LeanLocalization.GetTranslationText(BestLeanPhrase);
 
             _currentScoreFrame.text = $"{score}: {_player.Score}";
-            _bestScoreFrame.text = $"{best}: {_bestScore}";
+            _bestScoreFrame.text = $"{best}: {_bestStageScore}";
         }
 
         private void UpdateBestScore()
         {
-            SaveSystem.PlayerScore.Save(_player);
-            _bestScore = SaveSystem.PlayerScore.Load();
+            string stage = SceneManager.GetActiveScene().name;
+            SaveSystem.StageScore.Save(_player, stage);
+            _bestStageScore = SaveSystem.StageScore.Load(stage);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ElasticRush
 
         private void OnActiveSceneChanged(Scene previousScene, Scene currentScene)
         {
-            if (currentScene.name == Config.CoreScene)
+            if (currentScene.name == Config.Stage.CoreScene)
                 return;
 
             string level = LeanLocalization.GetTranslationText(LevelLeanPhrase);

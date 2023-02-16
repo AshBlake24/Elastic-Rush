@@ -1,5 +1,7 @@
+using ElasticRush.Utilities;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ElasticRush.Core
 {

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Agava.YandexGames;
 using ElasticRush.Core;
 
@@ -8,46 +7,45 @@ namespace ElasticRush.Utilities
 {
     public static class SaveSystem
     {
-        public static class PlayerScore
+        public static class StageScore
         {
-            private const string BestScore = nameof(BestScore);
-
-            public static void Save(Player player)
+            public static void Save(Player player, string stage)
             {
                 if (player == null)
                     throw new ArgumentNullException(nameof(player), "Player can't be null");
 
-                int lastBestScore = Load();
+                int lastBestScore = Load(stage);
 
                 if (player.Score > lastBestScore)
                 {
-#if UNITY_WEBGL || !UNITY_EDITOR
-                    Leaderboard.SetScore(Config.Leaderboard.LeaderboardName, player.Score);
-#endif
-                    PlayerPrefs.SetFloat(BestScore, player.Score);
+                    PlayerPrefs.SetFloat(stage, player.Score);
                     PlayerPrefs.Save();
                 }
             }
 
-            public static int Load()
+            public static int Load(string stage)
             {
-                int bestScore = 0;
+                int bestStageScore = 0;
 
-                if (PlayerPrefs.HasKey(BestScore))
-                    bestScore = (int)PlayerPrefs.GetFloat(BestScore);
+                if (PlayerPrefs.HasKey(stage))
+                    bestStageScore = (int)PlayerPrefs.GetFloat(stage);
 
-                return bestScore;
+                return bestStageScore;
             }
+        }
+
+        public static class PlayerScore
+        {
+            
         }
 
         public static class Stage
         {
             private const string CurrentStage = nameof(CurrentStage);
 
-            public static void Save()
+            public static void Save(string sceneName)
             {
-                PlayerPrefs.SetString(CurrentStage, SceneManager.GetActiveScene().name);
-
+                PlayerPrefs.SetString(CurrentStage, sceneName);
                 PlayerPrefs.Save();
             }
 
@@ -81,12 +79,6 @@ namespace ElasticRush.Utilities
 
                 return sensitivity;
             }
-        }
-
-        public static void SaveAll(Player player)
-        {
-            PlayerScore.Save(player);
-            Stage.Save();
         }
     }
 }
