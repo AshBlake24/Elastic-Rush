@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a43c4e7bc1219e4cbc1a867921ba4a2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8a43c4e7bc1219e4cbc1a867921ba4a2, type: 3}
       propertyPath: m_Name
       value: Currency Big
@@ -100,3 +104,5 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: a64d7e8a1fa740d4584e462c507eda6a, type: 3}
   _levelsCost: 25
   _scoreAmount: 5
+  _targetScale: 0
+  _scalingDuration: 0.3

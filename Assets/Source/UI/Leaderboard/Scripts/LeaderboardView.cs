@@ -35,7 +35,6 @@ namespace ElasticRush.UI
             {
                 foreach (var entry in result.entries)
                 {
-                    Debug.Log($"Name - {entry.player.publicName} | Rank - {entry.rank} | Score - {entry.score}");
                     CreateView(entry, _entriesContainer);
                 }
             }, null, Config.Leaderboard.TopPlayersCount);
@@ -45,11 +44,6 @@ namespace ElasticRush.UI
         {
             Leaderboard.GetPlayerEntry(Config.Leaderboard.LeaderboardName, (result) =>
             {
-                if (result == null)
-                    Debug.Log("Player is not present in the leaderboard.");
-                else
-                    Debug.Log($"My rank = {result.rank}, score = {result.score}");
-
                 CreateView(result, _playerContainer);
             });
         }

@@ -83,6 +83,7 @@ namespace ElasticRush.Core
             int lastBestScore = SaveSystem.PlayerScore.Load();
             int newBestScore = lastBestScore + _score;
             SaveSystem.PlayerScore.Save(this, newBestScore);
+            ScoreChanged?.Invoke();
         }
     }
 }

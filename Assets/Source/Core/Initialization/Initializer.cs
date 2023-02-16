@@ -19,34 +19,30 @@ namespace ElasticRush.Core
             YandexGamesSdk.CallbackLogging = true;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
-            string scene;
+            string stage;
 
+#if !UNITY_WEBGL || UNITY_EDITOR
             if (_stageToLoad == Stage.Saved)
-                scene = SaveSystem.Stage.Load();
+                stage = SaveSystem.Stage.Load();
             else
-                scene = $"Level {(int)_stageToLoad}";
+                stage = $"Level {(int)_stageToLoad}";
 
-            SceneLoader.Instance.LoadScene(scene);
+            SceneLoader.Instance.LoadScene(stage);
+            yield break;
+#endif
+
+            yield return YandexGamesSdk.Initialize();
+
+            if (YandexGamesSdk.IsInitialized == false)
+                throw new ArgumentNullException(nameof(YandexGamesSdk), "Yandex SDK didn't initialized correctly");
+
+            SetLanguage();
+
+            stage = SaveSystem.Stage.Load();
+            SceneLoader.Instance.LoadScene(stage);
         }
-
-//        private IEnumerator Start()
-//        {
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//            yield break;
-//#endif
-
-//            yield return YandexGamesSdk.Initialize();
-
-//            if (YandexGamesSdk.IsInitialized == false)
-//                throw new ArgumentNullException(nameof(YandexGamesSdk), "Yandex SDK didn't initialized correctly");
-
-//            SetLanguage();
-
-//            string scene = SaveSystem.Stage.Load();
-//            SceneLoader.Instance.LoadScene(scene);
-//        }
 
         private void SetLanguage()
         {

@@ -19,8 +19,6 @@ namespace ElasticRush
                 _leaderboardView.gameObject.SetActive(true);
             else
                 _authorizationScreen.SetActive(true);
-
-            Debug.Log($"Player auth - {PlayerAccount.IsAuthorized}");
         }
     }
 }
