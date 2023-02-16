@@ -46,15 +46,11 @@ namespace ElasticRush.UI
             Leaderboard.GetPlayerEntry(Config.LeaderboardName, (result) =>
             {
                 if (result == null)
-                {
                     Debug.Log("Player is not present in the leaderboard.");
-                    CreateView(result, _playerContainer);
-                }
                 else
-                {
                     Debug.Log($"My rank = {result.rank}, score = {result.score}");
-                    CreateView(result, _playerContainer);
-                }                
+
+                CreateView(result, _playerContainer);
             });
         }
 
