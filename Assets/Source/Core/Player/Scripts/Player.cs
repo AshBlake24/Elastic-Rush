@@ -56,9 +56,14 @@ namespace ElasticRush.Core
         public void Destroy()
         {
             if (_isFinished)
+            {
+                UpdatePlayerScore();
                 LevelCompleted?.Invoke();
+            }
             else
+            {
                 Died?.Invoke();
+            }
 
             _originWaypointFollower.StopMoving();
             Destroy(gameObject);
@@ -69,6 +74,11 @@ namespace ElasticRush.Core
             _score += score;
 
             ScoreChanged?.Invoke();
+        }
+
+        private void UpdatePlayerScore()
+        {
+            SaveSystem.PlayerScore.Save(this);
         }
     }
 }
