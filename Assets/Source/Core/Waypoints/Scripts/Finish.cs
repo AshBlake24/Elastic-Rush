@@ -6,15 +6,10 @@ namespace ElasticRush.Core
     {
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Trigger");
-
             Player player = other.GetComponentInParent<Player>();
 
             if (player != null)
-            {
                 player.Finish();
-                Debug.Log("Finish");
-            }
         }
     }
 }
