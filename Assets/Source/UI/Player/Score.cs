@@ -1,8 +1,8 @@
+using UnityEngine;
 using ElasticRush.Core;
 using ElasticRush.Utilities;
 using Lean.Localization;
 using TMPro;
-using UnityEngine;
 
 namespace ElasticRush.UI
 {

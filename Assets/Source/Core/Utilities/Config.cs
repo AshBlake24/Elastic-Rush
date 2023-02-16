@@ -2,6 +2,8 @@ namespace ElasticRush.Utilities
 {
     public static class Config
     {
+        public static string CoreScene = "Core";
+
         public static class Leaderboard
         {
             public const string LeaderboardName = "Leaderboard";

@@ -1,8 +1,8 @@
-using ElasticRush.Utilities;
-using Lean.Localization;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ElasticRush.Utilities;
+using Lean.Localization;
 
 namespace ElasticRush
 {
@@ -29,6 +29,12 @@ namespace ElasticRush
         {
             UnloadScene(previousScene);
             StartCoroutine(StartLoading(nextScene));
+        }
+
+        public void RestartScene()
+        {
+            string scene = SceneManager.GetActiveScene().name;
+            ChangeScene(scene, scene);
         }
 
         private IEnumerator StartLoading(string sceneName)
