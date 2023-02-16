@@ -141,6 +141,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 5421042b959cd3546b51b9034a1ef66f
     name: BG Music
+  - guid: f02bee9fb67277e4aaf9543a1dff7efe
+    name: Master
   - guid: def0891ae33f84e41b232148e0067c3f
     name: SFX
   m_AudioMixerGroupViews:
@@ -231,6 +233,7 @@ AudioMixerSnapshotController:
     fb2e07f92f235ca44bae35b5cabb0438: -8.362404
     5421042b959cd3546b51b9034a1ef66f: 0
     0e2a24ae9d4a5f946bc2bbe726f52a63: -12.498478
+    f02bee9fb67277e4aaf9543a1dff7efe: 0
   m_TransitionOverrides: {}
 --- !u!244 &1001065769645050309
 AudioMixerEffectController:
