@@ -8,9 +8,19 @@ namespace ElasticRush
     {
         [SerializeField] private TMP_Text _levelScreen;
 
-        private void Start()
+        private void OnEnable()
         {
-            _levelScreen.text = SceneManager.GetActiveScene().name;
+            SceneManager.activeSceneChanged += OnActiveSceneChanged;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+        }
+
+        private void OnActiveSceneChanged(Scene previousScene, Scene currentScene)
+        {
+            _levelScreen.text = currentScene.name;
         }
     }
 }

@@ -1,3 +1,5 @@
+using ElasticRush.Utilities;
+using Lean.Localization;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,6 +39,8 @@ namespace ElasticRush
                 yield return null;
 
             SetLoadedSceneActive(sceneName);
+
+            LeanLocalization.SetCurrentLanguageAll(Config.Languages.CurrentLanguage);
         }
 
         private void SetLoadedSceneActive(string sceneName)

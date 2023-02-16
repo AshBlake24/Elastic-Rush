@@ -31,19 +31,19 @@ namespace ElasticRush.UI
 
         private void LoadEntries()
         {
-            Leaderboard.GetEntries(Config.LeaderboardName, (result) =>
+            Leaderboard.GetEntries(Config.Leaderboard.LeaderboardName, (result) =>
             {
                 foreach (var entry in result.entries)
                 {
                     Debug.Log($"Name - {entry.player.publicName} | Rank - {entry.rank} | Score - {entry.score}");
                     CreateView(entry, _entriesContainer);
                 }
-            }, null, Config.TopPlayersCount);
+            }, null, Config.Leaderboard.TopPlayersCount);
         }
 
         private void LoadPlayerEntry()
         {
-            Leaderboard.GetPlayerEntry(Config.LeaderboardName, (result) =>
+            Leaderboard.GetPlayerEntry(Config.Leaderboard.LeaderboardName, (result) =>
             {
                 if (result == null)
                     Debug.Log("Player is not present in the leaderboard.");
