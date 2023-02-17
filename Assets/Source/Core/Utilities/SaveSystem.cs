@@ -78,7 +78,7 @@ namespace ElasticRush.Utilities
 
             public static string Load()
             {
-                string currentStage = StageManager.StartLevel;
+                string currentStage = Config.Stage.StartScene;
 
                 if (PlayerPrefs.HasKey(CurrentStage))
                     currentStage = PlayerPrefs.GetString(CurrentStage);
