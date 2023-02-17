@@ -48,7 +48,7 @@ namespace ElasticRush.Utilities
                 if (lastBestScore < score)
                 {
 #if UNITY_WEBGL && !UNITY_EDITOR
-                Leaderboard.SetScore(Config.Leaderboard.LeaderboardName, newBestScore);
+                Leaderboard.SetScore(Config.Leaderboard.LeaderboardName, score);
 #endif
                     PlayerPrefs.SetFloat(BestScore, score);
                     PlayerPrefs.Save();
