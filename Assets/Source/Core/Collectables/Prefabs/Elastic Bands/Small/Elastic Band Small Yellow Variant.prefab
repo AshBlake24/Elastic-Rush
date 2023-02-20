@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c11f01acd5d65b04db4fadea6ae36066, type: 3}
       propertyPath: m_Name
-      value: Elastic Band Small Yellow
+      value: Elastic Band Small Yellow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c11f01acd5d65b04db4fadea6ae36066, type: 3}
       propertyPath: m_Layer
@@ -99,4 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f064c7a43ecbe5544889d5b5ceae8420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioPlayer:
+    AudioSource: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: e1aa8f6ac6d7cad4992655bc9540cc16, type: 3}
   _level: 1
