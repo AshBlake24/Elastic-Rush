@@ -4,6 +4,7 @@ using ElasticRush.Utilities;
 using Lean.Localization;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace ElasticRush.UI
 {
@@ -20,8 +21,18 @@ namespace ElasticRush.UI
 
         private void OnEnable()
         {
-            UpdateBestScore();
+            _player.ScoreChanged += OnPlayerScoreChanged;
 
+            OnPlayerScoreChanged();
+        }
+
+        private void OnDisable()
+        {
+            _player.ScoreChanged -= OnPlayerScoreChanged;
+        }
+
+        private void ShowScore()
+        {
             string score = LeanLocalization.GetTranslationText(ScoreLeanPhrase);
             string best = LeanLocalization.GetTranslationText(BestLeanPhrase);
 
@@ -34,6 +45,12 @@ namespace ElasticRush.UI
             string stage = SceneManager.GetActiveScene().name;
             SaveSystem.StageScore.Save(_player, stage);
             _bestStageScore = SaveSystem.StageScore.Load(stage);
+        }
+
+        private void OnPlayerScoreChanged()
+        {
+            UpdateBestScore();
+            ShowScore();
         }
     }
 }
