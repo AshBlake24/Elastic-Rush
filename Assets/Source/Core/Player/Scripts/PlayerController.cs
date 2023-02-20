@@ -41,7 +41,7 @@ namespace ElasticRush.Core
 
         private void Update()
         {
-            if (_isDragging)
+            if (_isDragging && Helpers.IsOverUI() == false)
                 TryDrag();
         }
 
