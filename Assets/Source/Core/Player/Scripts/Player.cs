@@ -14,6 +14,7 @@ namespace ElasticRush.Core
 
         private int _score;
         private bool _isFinished;
+        private bool _isActive;
 
         public event Action LevelCompleted;
         public event Action EnemyAbsorbed;
@@ -23,9 +24,11 @@ namespace ElasticRush.Core
 
         public IReadonlyElasticBall ElasticBall => _elasticBall;
         public int Score => _score;
+        public bool IsActive => _isActive;
 
         private void Start()
         {
+            _isActive = true;
             _isFinished = false;
             ScoreChanged?.Invoke();
         }
@@ -70,6 +73,7 @@ namespace ElasticRush.Core
 
         public void Destroy()
         {
+            _isActive = false;
             _camera.gameObject.transform.SetParent(null, true);
             StartCoroutine(_originWaypointFollower.StopMoving());
 

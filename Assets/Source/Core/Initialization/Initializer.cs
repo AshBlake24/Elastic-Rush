@@ -26,6 +26,8 @@ namespace ElasticRush.Core
 #if !UNITY_WEBGL || UNITY_EDITOR
             if (_stageToLoad == Stage.Saved)
                 stage = SaveSystem.Stage.Load();
+            if (_stageToLoad == Stage.Test)
+                stage = $"Test Scene";
             else
                 stage = $"Level {(int)_stageToLoad}";
 
@@ -60,7 +62,8 @@ namespace ElasticRush.Core
             Level1,
             Level2,
             Level3,
-            Level4
+            Level4,
+            Test
         }
     }
 }

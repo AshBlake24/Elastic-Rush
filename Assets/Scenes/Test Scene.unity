@@ -7085,6 +7085,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5166514861764865624, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2732396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166514861764865624, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2732396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166514861764865624, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.2732396
+      objectReference: {fileID: 0}
     - target: {fileID: 5339727424109586807, guid: 8e59acb016e60a843a890696e658caca, type: 3}
       propertyPath: m_ClearFlags
       value: 2
@@ -7173,6 +7185,10 @@ PrefabInstance:
       propertyPath: _startWaypoint
       value: 
       objectReference: {fileID: 1539837382}
+    - target: {fileID: 9002086900109220616, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: _level
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e59acb016e60a843a890696e658caca, type: 3}
 --- !u!114 &976897834 stripped
@@ -12329,6 +12345,7 @@ GameObject:
   - component: {fileID: 1883622231}
   - component: {fileID: 1883622233}
   - component: {fileID: 1883622232}
+  - component: {fileID: 1883622234}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -12381,6 +12398,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
   _exposedVolumeName: Master
+--- !u!81 &1883622234
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883622229}
+  m_Enabled: 1
 --- !u!1 &1889482963
 GameObject:
   m_ObjectHideFlags: 0

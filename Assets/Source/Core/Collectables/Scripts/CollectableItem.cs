@@ -27,6 +27,9 @@ namespace ElasticRush.Collectables
             OnCollected(player);
         }
 
-        protected abstract void OnCollected(Player player);
+        protected virtual void OnCollected(Player player)
+        {
+            Destroy(gameObject);
+        }
     }
 }
