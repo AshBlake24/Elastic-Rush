@@ -1,3 +1,5 @@
+using ElasticRush.Utilities;
+using System.Collections;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -44,8 +46,19 @@ namespace ElasticRush.Core
                 Rotate();
         }
 
-        public void StopMoving()
+        public IEnumerator StopMoving()
         {
+            float duration = Config.Player.TimeToStopRolling;
+            float maxSpeed = _speed;
+            float elapsedTime = 0;
+
+            while (elapsedTime < duration)
+            {
+                _speed = Mathf.Lerp(maxSpeed, 0, elapsedTime / duration);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
             _currentWaypoint = null;
         }
 

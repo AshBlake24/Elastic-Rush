@@ -71,6 +71,7 @@ namespace ElasticRush.Core
         public void Destroy()
         {
             _camera.gameObject.transform.SetParent(null, true);
+            StartCoroutine(_originWaypointFollower.StopMoving());
 
             if (_isFinished)
             {
@@ -81,8 +82,6 @@ namespace ElasticRush.Core
             {
                 Died?.Invoke();
             }
-
-            StartCoroutine(StopMoving());
         }
 
         public void AddScore(int score)
@@ -100,13 +99,6 @@ namespace ElasticRush.Core
             int newBestScore = lastBestScore + _score;
             SaveSystem.PlayerScore.Save(this, newBestScore);
             ScoreChanged?.Invoke();
-        }
-
-        private IEnumerator StopMoving()
-        {
-            yield return Helpers.GetTime(Config.Player.TimeBeforeEndScreen);
-
-            _originWaypointFollower.StopMoving();
         }
     }
 }
