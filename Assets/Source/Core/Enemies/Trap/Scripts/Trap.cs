@@ -6,6 +6,7 @@ namespace ElasticRush.Core
     {
         [SerializeField] private Waypoint _startWaypoint;
         [SerializeField] private float _speed;
+        [SerializeField, Range(1, 100)] private int _playerDamagePercentage;
 
         private Waypoint _currentWaypoint;
 
@@ -39,7 +40,9 @@ namespace ElasticRush.Core
 
             if (player != null)
             {
-                player.Destroy();
+                int damage = player.ElasticBall.Level * _playerDamagePercentage / 100;
+                damage = Mathf.Clamp(damage, 1, int.MaxValue);
+                player.TakeDamage(damage);
             }
         }
     }

@@ -1,7 +1,6 @@
 using ElasticRush.Utilities;
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace ElasticRush.Core
 {
@@ -17,6 +16,7 @@ namespace ElasticRush.Core
         public event Action LevelCompleted;
         public event Action EnemyAbsorbed;
         public event Action ScoreChanged;
+        public event Action DamageReceived;
         public event Action Died;
 
         public IReadonlyElasticBall ElasticBall => _elasticBall;
@@ -36,6 +36,19 @@ namespace ElasticRush.Core
         {
             LevelUp(enemyLevel);
             EnemyAbsorbed?.Invoke();
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (damage >= _elasticBall.Level)
+            {
+                Destroy();
+            }
+            else
+            {
+                _elasticBall.TryReduceLevel(damage);
+                DamageReceived?.Invoke();
+            }
         }
 
         public void ExchageLevelsForScore(int levels, int score)

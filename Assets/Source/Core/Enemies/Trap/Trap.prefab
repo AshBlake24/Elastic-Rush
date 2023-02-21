@@ -248,8 +248,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerObserver: {fileID: 1423198037771971779}
+  AudioPlayer:
+    AudioSource: {fileID: 0}
+    AudioClip: {fileID: 8300000, guid: 92c024e48cd1f1542a3738aa1ee2eda9, type: 3}
   _startWaypoint: {fileID: 4524987670581102219}
   _speed: 1
+  _playerDamagePercentage: 50
 --- !u!4 &6506263439380372484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a699c4367b5a1b24a955cc39c9bdca9c, type: 3}
