@@ -1,5 +1,6 @@
 using ElasticRush.Utilities;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ElasticRush.Core
@@ -7,6 +8,7 @@ namespace ElasticRush.Core
     [RequireComponent(typeof(ElasticBall))]
     public class Player : MonoBehaviour
     {
+        [SerializeField] private Camera _camera;
         [SerializeField] private WaypointFollower _originWaypointFollower;
         [SerializeField] private ElasticBall _elasticBall;
 
@@ -68,9 +70,11 @@ namespace ElasticRush.Core
 
         public void Destroy()
         {
+            _camera.gameObject.transform.SetParent(null, true);
+
             if (_isFinished)
             {
-                UpdatePlayerBestScore();
+                UpdatePlayerEntryBestScore();
                 LevelCompleted?.Invoke();
             }
             else
@@ -78,8 +82,7 @@ namespace ElasticRush.Core
                 Died?.Invoke();
             }
 
-            _originWaypointFollower.StopMoving();
-            Destroy(gameObject);
+            StartCoroutine(StopMoving());
         }
 
         public void AddScore(int score)
@@ -89,14 +92,21 @@ namespace ElasticRush.Core
             ScoreChanged?.Invoke();
         }
 
-        public void AddExtraScore() => UpdatePlayerBestScore();
+        public void AddExtraScore() => UpdatePlayerEntryBestScore();
 
-        private void UpdatePlayerBestScore()
+        private void UpdatePlayerEntryBestScore()
         {
             int lastBestScore = SaveSystem.PlayerScore.Load();
             int newBestScore = lastBestScore + _score;
             SaveSystem.PlayerScore.Save(this, newBestScore);
             ScoreChanged?.Invoke();
+        }
+
+        private IEnumerator StopMoving()
+        {
+            yield return Helpers.GetTime(Config.Player.TimeBeforeEndScreen);
+
+            _originWaypointFollower.StopMoving();
         }
     }
 }

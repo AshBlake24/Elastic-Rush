@@ -20,5 +20,21 @@ namespace ElasticRush.Utilities
         }
 
         #endregion
+
+        #region Time
+
+        private static readonly Dictionary<float, WaitForSeconds> WaitDictionary = new Dictionary<float, WaitForSeconds>();
+
+        public static WaitForSeconds GetTime(float timeInSeconds)
+        {
+            if (WaitDictionary.TryGetValue(timeInSeconds, out WaitForSeconds wait))
+                return wait;
+
+            WaitDictionary[timeInSeconds] = new WaitForSeconds(timeInSeconds);
+
+            return WaitDictionary[timeInSeconds];
+        }
+
+        #endregion Time
     }
 }

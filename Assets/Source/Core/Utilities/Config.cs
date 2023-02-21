@@ -20,5 +20,15 @@ namespace ElasticRush.Utilities
 
             public static string CurrentLanguage = DefaultLanguage;
         }
+
+        public static class Player
+        {
+            public const float TimeBeforeEndScreen = 1f;
+        }
+
+        public static class Layers
+        {
+            public const string IgnoreCollisions = nameof(IgnoreCollisions);
+        }
     }
 }
