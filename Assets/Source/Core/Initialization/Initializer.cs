@@ -12,7 +12,6 @@ namespace ElasticRush.Core
     {
         [SerializeField] private Stage _stageToLoad;
         [SerializeField] private List<LeanLanguage> _languages;
-        [SerializeField] private string _startScene;
 
         private void Awake()
         {
@@ -21,16 +20,8 @@ namespace ElasticRush.Core
 
         private IEnumerator Start()
         {
-            string stage;
-
 #if !UNITY_WEBGL || UNITY_EDITOR
-            if (_stageToLoad == Stage.Saved)
-                stage = SaveSystem.Stage.Load();
-            if (_stageToLoad == Stage.Test)
-                stage = $"Test Scene";
-            else
-                stage = $"Level {(int)_stageToLoad}";
-
+            string stage = GetStageToLoad();
             SceneLoader.Instance.LoadScene(stage);
             yield break;
 #endif
@@ -44,6 +35,19 @@ namespace ElasticRush.Core
 
             stage = SaveSystem.Stage.Load();
             SceneLoader.Instance.LoadScene(stage);
+        }
+
+        private string GetStageToLoad()
+        {
+            switch (_stageToLoad)
+            {
+                case Stage.Saved:
+                    return SaveSystem.Stage.Load();
+                case Stage.Test:
+                    return $"Test Scene";
+                default:
+                    return $"Level {(int)_stageToLoad}";
+            }
         }
 
         private void SetLanguage()
