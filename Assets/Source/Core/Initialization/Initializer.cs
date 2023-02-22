@@ -39,15 +39,10 @@ namespace ElasticRush.Core
 
         private string GetStageToLoad()
         {
-            switch (_stageToLoad)
-            {
-                case Stage.Saved:
-                    return SaveSystem.Stage.Load();
-                case Stage.Test:
-                    return $"Test Scene";
-                default:
-                    return $"Level {(int)_stageToLoad}";
-            }
+            if (_stageToLoad == Stage.Saved)
+                return SaveSystem.Stage.Load();
+            else
+                return $"Level {(int)_stageToLoad}";
         }
 
         private void SetLanguage()
@@ -67,7 +62,6 @@ namespace ElasticRush.Core
             Level2,
             Level3,
             Level4,
-            Test
         }
     }
 }
