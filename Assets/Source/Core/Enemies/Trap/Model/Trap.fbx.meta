@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: EndSegaPalette
-    second: {fileID: 2100000, guid: 496d08eca1f0ff246b270d5c20658f56, type: 2}
+    second: {fileID: 2100000, guid: c2a022423213a854da9c24283e43f6e9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
