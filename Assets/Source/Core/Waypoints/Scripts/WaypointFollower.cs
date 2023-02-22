@@ -1,4 +1,5 @@
 using ElasticRush.Utilities;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace ElasticRush.Core
         private Quaternion _startRotation;
         private float _elapsedTime;
         private bool _isRotating;
+
+        public event Action MoveStoped;
 
         public Waypoint CurrentWaypoint => _currentWaypoint;
 
@@ -46,7 +49,7 @@ namespace ElasticRush.Core
                 Rotate();
         }
 
-        public IEnumerator StopMoving()
+        public IEnumerator StopMovingSlowly()
         {
             float duration = Config.Player.TimeToStopRolling;
             float maxSpeed = _speed;
@@ -59,7 +62,15 @@ namespace ElasticRush.Core
                 yield return null;
             }
 
+            OnMoveStopped();
+        }
+
+        public void StopMoving() => OnMoveStopped();
+
+        private void OnMoveStopped()
+        {
             _currentWaypoint = null;
+            MoveStoped?.Invoke();
         }
 
         private void Move()

@@ -74,16 +74,18 @@ namespace ElasticRush.Core
         public void Destroy()
         {
             _isActive = false;
-            _camera.gameObject.transform.SetParent(null, true);
-            StartCoroutine(_originWaypointFollower.StopMoving());
+            
 
             if (_isFinished)
             {
+                _camera.gameObject.transform.SetParent(null, true);
+                StartCoroutine(_originWaypointFollower.StopMovingSlowly());
                 UpdatePlayerEntryBestScore();
                 LevelCompleted?.Invoke();
             }
             else
             {
+                _originWaypointFollower.StopMoving();
                 Died?.Invoke();
             }
         }

@@ -1,4 +1,5 @@
 using ElasticRush.Utilities;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,12 +7,13 @@ namespace ElasticRush.Core
 {
     public class MoveStarter : MonoBehaviour
     {
-        [SerializeField] private Animator _playerAnimator;
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private WaypointFollower _follower;
         [SerializeField] private TMP_Text _startInfo;
 
         private PlayerInput _input;
+
+        public event Action MoveStarted;
 
         private void OnDisable()
         {
@@ -31,7 +33,7 @@ namespace ElasticRush.Core
             if (Helpers.IsOverUI())
                 return;
 
-            _playerAnimator.SetBool(AnimatorPlayerController.States.Rolling, true);
+            MoveStarted?.Invoke();
             _startInfo.gameObject.SetActive(false);
             _follower.enabled = true;
             enabled = false;

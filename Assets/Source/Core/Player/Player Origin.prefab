@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 407984876}
   - component: {fileID: 6851206255290819239}
   - component: {fileID: 5348014713253868577}
+  - component: {fileID: 1830215862831163131}
   m_Layer: 7
   m_Name: Player Origin
   m_TagString: Untagged
@@ -304,10 +305,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bd3e7f48eed9d44817009ab0baeb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 6532435661968159948}
   _playerController: {fileID: 5339727424169579214}
   _follower: {fileID: 5388181374263175126}
   _startInfo: {fileID: 0}
+--- !u!114 &1830215862831163131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339727425559324195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bec95e6dd156d4d86928fc0f9e0bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 6532435661968159948}
+  _playerMoveStarter: {fileID: 5348014713253868577}
+  _playerWaypointFollower: {fileID: 5388181374263175126}
 --- !u!1 &5339727425727236208
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c2081f836c94648be1cbaa25b15f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
   _originWaypointFollower: {fileID: 5388181374263175126}
   _elasticBall: {fileID: 9002086900109220616}
 --- !u!114 &5339727424169579214
