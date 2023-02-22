@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace ElasticRush.Core
 {
+    [RequireComponent(typeof(Player))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float _minSensitivty = 0.1f;
         [SerializeField] private float _maxSensitivty = 3.0f;
         [SerializeField] private float _xAxisBounds;
 
+        private Player _player;
         private PlayerInput _input;
         private Sensitivity _sensitivity;
         private bool _isDragging;
@@ -21,6 +23,7 @@ namespace ElasticRush.Core
             float sensitivity = SaveSystem.Settings.LoadSensitivity();
             _sensitivity = new Sensitivity(_minSensitivty, _maxSensitivty, sensitivity);
             _input = new PlayerInput();
+            _player = GetComponent<Player>();
         }
 
         private void OnEnable()
@@ -41,6 +44,9 @@ namespace ElasticRush.Core
 
         private void Update()
         {
+            if (_player.IsActive == false)
+                return;
+
             if (_isDragging && Helpers.IsOverUI() == false)
                 TryDrag();
         }
