@@ -22,18 +22,20 @@ namespace ElasticRush.Core
 
         protected override void OnTriggerEntered(Collider collider)
         {
-            if (collider.GetComponentInParent<Player>() == null)
+            Player player = collider.GetComponentInParent<Player>();
+
+            if (player == null && player.IsActive == false)
                 return;
 
-            if (_player.ElasticBall.Level >= _elasticBall.Level)
+            if (player.ElasticBall.Level >= _elasticBall.Level)
             {
                 AudioPlayer.PlayClip();
-                _player.AbsorbEnemy(_elasticBall.Level);
+                player.AbsorbEnemy(_elasticBall.Level);
                 Destroy(gameObject);
             }
             else
             {
-                _player.Destroy();
+                player.Destroy();
             }
         }
 

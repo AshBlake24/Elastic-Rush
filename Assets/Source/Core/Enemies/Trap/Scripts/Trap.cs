@@ -38,7 +38,7 @@ namespace ElasticRush.Core
         {
             Player player = collider.GetComponentInParent<Player>();
 
-            if (player != null)
+            if (player != null && player.IsActive)
             {
                 int damage = player.ElasticBall.Level * _playerDamagePercentage / 100;
                 damage = Mathf.Clamp(damage, 1, int.MaxValue);
