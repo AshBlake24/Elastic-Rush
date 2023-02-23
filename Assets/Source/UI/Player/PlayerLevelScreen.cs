@@ -10,16 +10,22 @@ namespace ElasticRush.UI
         private void OnEnable()
         {
             _player.Died += OnDied;
+            _player.LevelCompleted += OnLevelCompleted;
         }
 
         private void OnDisable()
         {
             _player.Died -= OnDied;
+            _player.LevelCompleted -= OnLevelCompleted;
         }
 
-        private void OnDied()
+        private void Destroy()
         {
             Destroy(gameObject);
         }
+
+        private void OnLevelCompleted() => Destroy();
+
+        private void OnDied() => Destroy();
     }
 }
