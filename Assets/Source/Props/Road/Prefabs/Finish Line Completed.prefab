@@ -32,9 +32,83 @@ Transform:
   - {fileID: 7964783950203044726}
   - {fileID: 1662241781803501870}
   - {fileID: 985668782802100796}
+  - {fileID: 1129341351565539655}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6975280046079485851
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6358592911007101412}
+    m_Modifications:
+    - target: {fileID: 7217798418783618150, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_Name
+      value: Ground Finish (Large Currency) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000026226917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+--- !u!4 &1129341351565539655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8025719955415178972, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+  m_PrefabInstance: {fileID: 6975280046079485851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4912907985196159716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2657981359166600575, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+  m_PrefabInstance: {fileID: 6975280046079485851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7be90e2f3586324f9687b39d6af0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7119304040101784140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,6 +691,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7101150870781991612, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
+      propertyPath: _nextWaypoint
+      value: 
+      objectReference: {fileID: 4912907985196159716}
     - target: {fileID: 7217798418783618150, guid: 3a035379c8acc76489d24a1c6e1f09db, type: 3}
       propertyPath: m_Name
       value: Ground Finish (Large Currency)

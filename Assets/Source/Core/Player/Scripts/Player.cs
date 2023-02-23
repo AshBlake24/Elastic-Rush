@@ -1,6 +1,5 @@
 using ElasticRush.Utilities;
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace ElasticRush.Core
