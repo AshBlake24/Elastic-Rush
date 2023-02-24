@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skybox 6 (Coffee)
+  m_Name: Skybox 1 (Retro)
   m_Shader: {fileID: 4800000, guid: e32cae2a5bbfb41888ef2ba8391ab87d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -61,10 +61,10 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DirectionPitch: 180
+    - _DirectionPitch: 65
     - _DirectionYaw: 0
     - _DstBlend: 0
-    - _Exponent: 1.46
+    - _Exponent: 1.17
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -80,8 +80,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 0.8396226, g: 0.56767493, b: 0.5109024, a: 1}
-    - _Direction: {r: -0, g: -1, b: -0.00000008742278, a: 0}
+    - _Color1: {r: 0.28298193, g: 0.986, b: 0.9646946, a: 0}
+    - _Color2: {r: 0.6698113, g: 0.4703559, b: 0.46444464, a: 0}
+    - _Direction: {r: 0, g: 0.42261824, b: 0.9063078, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

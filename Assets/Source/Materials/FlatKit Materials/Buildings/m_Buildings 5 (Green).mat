@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_Buildings 1 (Retro)
+  m_Name: m_Buildings 5 (Green)
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_GRADIENT_ON
@@ -94,7 +94,7 @@ Material:
     - _GradientCenterX: 0
     - _GradientCenterY: -100
     - _GradientEnabled: 1
-    - _GradientSize: 325
+    - _GradientSize: 320
     - _LightContribution: 0.2
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
@@ -123,12 +123,12 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6379608, g: 0.6509804, b: 0.6509804, a: 1}
-    - _ColorDim: {r: 0.34901962, g: 0.2617647, b: 0.2617647, a: 1}
+    - _Color: {r: 0.6509804, g: 0.63730985, b: 0.6456213, a: 1}
+    - _ColorDim: {r: 0.21176471, g: 0.29158142, b: 0.34901962, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorGradient: {r: 0, g: 0.05, b: 0.04444444, a: 1}
+    - _ColorGradient: {r: 0, g: 0.042432833, b: 0.376, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
