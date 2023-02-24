@@ -9,5 +9,6 @@ namespace ElasticRush.Core
         TMP_Text LevelFrame { get; }
 
         event Action LevelChanged;
+        event Action<float> SizeChanged;
     }
 }

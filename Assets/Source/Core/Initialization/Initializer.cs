@@ -13,6 +13,8 @@ namespace ElasticRush.Core
         [SerializeField] private Stage _stageToLoad;
         [SerializeField] private List<LeanLanguage> _languages;
 
+        private string _stage;
+
         private void Awake()
         {
             YandexGamesSdk.CallbackLogging = true;
@@ -21,8 +23,8 @@ namespace ElasticRush.Core
         private IEnumerator Start()
         {
 #if !UNITY_WEBGL || UNITY_EDITOR
-            string stage = GetStageToLoad();
-            SceneLoader.Instance.LoadScene(stage);
+            _stage = GetStageToLoad();
+            SceneLoader.Instance.LoadScene(_stage);
             yield break;
 #endif
 
@@ -33,8 +35,8 @@ namespace ElasticRush.Core
 
             SetLanguage();
 
-            stage = SaveSystem.Stage.Load();
-            SceneLoader.Instance.LoadScene(stage);
+            _stage = SaveSystem.Stage.Load();
+            SceneLoader.Instance.LoadScene(_stage);
         }
 
         private string GetStageToLoad()

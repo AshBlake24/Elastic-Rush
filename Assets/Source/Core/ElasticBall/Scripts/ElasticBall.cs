@@ -16,6 +16,7 @@ namespace ElasticRush.Core
         private float _size;
 
         public event Action LevelChanged;
+        public event Action<float> SizeChanged;
 
         public int Level => _level;
         public TMP_Text LevelFrame => _levelFrame;
@@ -83,6 +84,8 @@ namespace ElasticRush.Core
             _size = Mathf.Lerp(MinSize, MaxSize, Mathf.Log10(_level) / Mathf.PI);
 
             transform.localScale = Vector3.one * _size;
+
+            SizeChanged?.Invoke(_size);
         }
     }
 }
