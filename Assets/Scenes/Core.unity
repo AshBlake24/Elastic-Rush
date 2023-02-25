@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4618f2367358a5f4a9fd9b918e14905f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageToLoad: 4
+  _stageToLoad: 1
   _languages:
   - {fileID: -4933353152916006438, guid: adef00e2be323654ca5fa825a2cc3c72, type: 3}
   - {fileID: -4933353152916006438, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815653670}
   - component: {fileID: 1815653669}
+  - component: {fileID: 1815653671}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -385,3 +386,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1815653671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685026e7e6081324cb036f8c56e5997b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

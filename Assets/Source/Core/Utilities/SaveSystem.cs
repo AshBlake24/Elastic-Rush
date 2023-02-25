@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Agava.YandexGames;
 using ElasticRush.Core;
+using ElasticRush.Audio;
 
 namespace ElasticRush.Utilities
 {
@@ -90,12 +91,18 @@ namespace ElasticRush.Utilities
         public static class Settings
         {
             private const string Sensitivity = nameof(Sensitivity);
+            private const string Sound = nameof(Sound);
+            private const string Music = nameof(Music);
 
             public static void SaveSensitivity(float value)
             {
                 PlayerPrefs.SetFloat(Sensitivity, value);
                 PlayerPrefs.Save();
             }
+
+            public static void SaveSound(bool isMuted) => SaveAudio(Sound, isMuted);
+
+            public static void SaveMusic(bool isMuted) => SaveAudio(Music, isMuted);
 
             public static float LoadSensitivity()
             {
@@ -105,6 +112,35 @@ namespace ElasticRush.Utilities
                     sensitivity = PlayerPrefs.GetFloat(Sensitivity);
 
                 return sensitivity;
+            }
+
+            public static bool LoadSound() => LoadAudio(Sound);
+
+            public static bool LoadMusic() => LoadAudio(Music);
+
+            private static void SaveAudio(string audioKey, bool isMuted)
+            {
+                if (isMuted)
+                    PlayerPrefs.SetFloat(audioKey, AudioGroupController.MinVolume);
+                else
+                    PlayerPrefs.SetFloat(audioKey, AudioGroupController.MaxVolume);
+
+                PlayerPrefs.Save();
+            }
+
+            private static bool LoadAudio(string audioKey)
+            {
+                bool isMuted = false;
+
+                if (PlayerPrefs.HasKey(audioKey))
+                {
+                    float volume = PlayerPrefs.GetFloat(audioKey);
+
+                    if (volume == AudioGroupController.MinVolume)
+                        isMuted = true;
+                }
+
+                return isMuted;
             }
         }
     }

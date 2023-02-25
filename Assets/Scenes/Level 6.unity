@@ -11523,8 +11523,8 @@ GameObject:
   - component: {fileID: 1574405879}
   - component: {fileID: 1574405878}
   - component: {fileID: 1574405877}
-  - component: {fileID: 1574405876}
   - component: {fileID: 1574405875}
+  - component: {fileID: 1574405880}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -11567,22 +11567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
   _exposedVolumeName: BG Music
---- !u!114 &1574405876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574405873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dadb29b31ab6bc49a4db1aaace4e549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnabledSprite: {fileID: 21300000, guid: eb165af05aa2e4ab2bcad217611774b8, type: 3}
-  DisabledSprite: {fileID: 21300000, guid: b1f42bbbfffc44202b66381ab8b622ee, type: 3}
-  _image: {fileID: 1912398174}
-  _audioGroupController: {fileID: 1574405875}
 --- !u!114 &1574405877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11669,6 +11653,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574405873}
   m_CullTransparentMesh: 1
+--- !u!114 &1574405880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574405873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aca46dfdf8412e4099c8df61b2eeb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnabledSprite: {fileID: 21300000, guid: eb165af05aa2e4ab2bcad217611774b8, type: 3}
+  DisabledSprite: {fileID: 21300000, guid: b1f42bbbfffc44202b66381ab8b622ee, type: 3}
+  _image: {fileID: 1912398174}
+  _audioGroupController: {fileID: 1574405875}
 --- !u!1001 &1581697073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12780,8 +12780,8 @@ GameObject:
   - component: {fileID: 1766448604}
   - component: {fileID: 1766448603}
   - component: {fileID: 1766448602}
-  - component: {fileID: 1766448601}
   - component: {fileID: 1766448600}
+  - component: {fileID: 1766448605}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -12824,22 +12824,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
   _exposedVolumeName: SFX
---- !u!114 &1766448601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766448598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dadb29b31ab6bc49a4db1aaace4e549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnabledSprite: {fileID: 21300000, guid: 901d64fc6ad9d44799c2ad0fd4f182d2, type: 3}
-  DisabledSprite: {fileID: 21300000, guid: 78757b0623f3b4309b7cc69c4769ae37, type: 3}
-  _image: {fileID: 469192854}
-  _audioGroupController: {fileID: 1766448600}
 --- !u!114 &1766448602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12926,6 +12910,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766448598}
   m_CullTransparentMesh: 1
+--- !u!114 &1766448605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766448598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9bd8770debf22448874e3b065f32ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnabledSprite: {fileID: 21300000, guid: 901d64fc6ad9d44799c2ad0fd4f182d2, type: 3}
+  DisabledSprite: {fileID: 21300000, guid: 78757b0623f3b4309b7cc69c4769ae37, type: 3}
+  _image: {fileID: 469192854}
+  _audioGroupController: {fileID: 1766448600}
 --- !u!1001 &1785089978
 PrefabInstance:
   m_ObjectHideFlags: 0

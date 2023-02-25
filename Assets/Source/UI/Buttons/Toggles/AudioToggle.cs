@@ -1,18 +1,23 @@
 using ElasticRush.Audio;
+using ElasticRush.Utilities;
 using UnityEngine;
 
 namespace ElasticRush.UI
 {
     [RequireComponent(typeof(AudioGroupController))]
-    public class AudioToggle : UnityEngine.UI.Extensions.Toggle
+    public abstract class AudioToggle : UnityEngine.UI.Extensions.Toggle
     {
         [SerializeField] private AudioGroupController _audioGroupController;
+
+        protected bool IsMuted;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             CheckVolume();
+            SetToggleState();
         }
+        protected abstract void CheckVolume();
 
         protected override void OnToggleClick(bool toggleState)
         {
@@ -28,9 +33,9 @@ namespace ElasticRush.UI
             }
         }
 
-        private void CheckVolume()
+        private void SetToggleState()
         {
-            if (_audioGroupController.IsMuted)
+            if (IsMuted)
                 Disable();
             else
                 Enable();

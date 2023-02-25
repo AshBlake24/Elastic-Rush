@@ -1,3 +1,4 @@
+using ElasticRush.Utilities;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -5,8 +6,8 @@ namespace ElasticRush.Audio
 {
     public class AudioGroupController : MonoBehaviour
     {
-        private const float MinVolume = -80f;
-        private const float MaxVolume = 0f;
+        public const float MinVolume = -80f;
+        public const float MaxVolume = 0f;
 
         [SerializeField] private AudioMixer _mixer;
         [SerializeField] private string _exposedVolumeName;
