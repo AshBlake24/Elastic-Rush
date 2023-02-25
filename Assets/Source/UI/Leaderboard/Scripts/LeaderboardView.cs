@@ -13,14 +13,21 @@ namespace ElasticRush.UI
 
         private readonly List<LeaderboardEntryView> _leaderboardEntryViews = new();
 
+        private float _lastTimeScale = 1;
+
         private void OnEnable()
         {
             LoadData();
+
+            _lastTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
         }
 
         private void OnDisable()
         {
             ClearViews();
+
+            Time.timeScale = _lastTimeScale;
         }
 
         private void LoadData()
