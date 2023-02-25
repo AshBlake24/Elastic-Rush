@@ -11,7 +11,6 @@ Material:
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
   - DR_GRADIENT_ON
-  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _TEXTUREBLENDINGMODE_MULTIPLY
   m_InvalidKeywords:
@@ -54,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e64b23c0417edb343900d7af1187a767, type: 3}
+        m_Texture: {fileID: 2800000, guid: da56038216d088c49b7aade82cc6ec29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -105,7 +104,7 @@ Material:
     - _OverrideLightmapDir: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 1
+    - _RimEnabled: 0
     - _SelfShadingSize: 0.5
     - _SelfShadingSizeExtra: 0.6
     - _ShadowEdgeSize: 0.3
@@ -124,12 +123,12 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6509804, g: 0.58588237, b: 0.6041098, a: 1}
-    - _ColorDim: {r: 0.34901962, g: 0.22741662, b: 0.16857646, a: 1}
+    - _Color: {r: 0.9, g: 0.5988189, b: 0.45, a: 1}
+    - _ColorDim: {r: 0.6, g: 0.5182609, b: 0.48000002, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.25, g: 0.25, b: 0.25, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorGradient: {r: 0.5019608, g: 0.20392157, b: 0, a: 1}
+    - _ColorGradient: {r: 0.5019608, g: 0, b: 0.33618957, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.39607844, g: 0.30588236, b: 0.25882354, a: 1}
     - _FlatSpecularColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
