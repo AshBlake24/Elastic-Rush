@@ -18,7 +18,7 @@ namespace ElasticRush.Utilities
         {
             public const string DefaultLanguage = "English";
 
-            public static string CurrentLanguage = DefaultLanguage;
+            public static string CurrentLanguage;
         }
 
         public static class Player

@@ -93,6 +93,7 @@ namespace ElasticRush.Utilities
             private const string Sensitivity = nameof(Sensitivity);
             private const string Sound = nameof(Sound);
             private const string Music = nameof(Music);
+            private const string Language = nameof(Language);
 
             public static void SaveSensitivity(float value)
             {
@@ -103,6 +104,12 @@ namespace ElasticRush.Utilities
             public static void SaveSound(bool isMuted) => SaveAudio(Sound, isMuted);
 
             public static void SaveMusic(bool isMuted) => SaveAudio(Music, isMuted);
+
+            public static void SaveLanguage(string currentLanguage)
+            {
+                PlayerPrefs.SetString(Language, currentLanguage);
+                PlayerPrefs.Save();
+            }
 
             public static float LoadSensitivity()
             {
@@ -117,6 +124,14 @@ namespace ElasticRush.Utilities
             public static bool LoadSound() => LoadAudio(Sound);
 
             public static bool LoadMusic() => LoadAudio(Music);
+
+            public static string LoadLanguage()
+            {
+                if (PlayerPrefs.HasKey(Language))
+                    return PlayerPrefs.GetString(Language);
+                else
+                    return null;
+            }
 
             private static void SaveAudio(string audioKey, bool isMuted)
             {

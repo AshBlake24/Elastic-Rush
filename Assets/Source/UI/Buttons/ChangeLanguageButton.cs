@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI.Extensions;
 using Lean.Localization;
+using ElasticRush.Utilities;
 
 namespace ElasticRush.UI
 {
@@ -10,7 +11,9 @@ namespace ElasticRush.UI
 
         protected override void OnButtonClick()
         {
-            LeanLocalization.SetCurrentLanguageAll(_language.name);
+            Config.Language.CurrentLanguage = _language.name;
+            SaveSystem.Settings.SaveLanguage(Config.Language.CurrentLanguage);
+            LeanLocalization.SetCurrentLanguageAll(Config.Language.CurrentLanguage);
         }
     }
 }

@@ -355,6 +355,9 @@ GameObject:
   - component: {fileID: 1815653670}
   - component: {fileID: 1815653669}
   - component: {fileID: 1815653671}
+  - component: {fileID: 1815653674}
+  - component: {fileID: 1815653673}
+  - component: {fileID: 1815653672}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -398,3 +401,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685026e7e6081324cb036f8c56e5997b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1815653672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddedbd020fe7a114aabf6f2a4c2fbb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
+  _exposedVolumeName: BG Music
+--- !u!114 &1815653673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddedbd020fe7a114aabf6f2a4c2fbb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
+  _exposedVolumeName: SFX
+--- !u!114 &1815653674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4ccd305e5ab03449884ef82288ab87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundGroup: {fileID: 1815653673}
+  _musicGroup: {fileID: 1815653672}

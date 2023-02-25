@@ -23,6 +23,7 @@ namespace ElasticRush.Core
         private IEnumerator Start()
         {
 #if !UNITY_WEBGL || UNITY_EDITOR
+            SetLanguage();
             _stage = GetStageToLoad();
             SceneLoader.Instance.LoadScene(_stage);
             yield break;
@@ -49,11 +50,22 @@ namespace ElasticRush.Core
 
         private void SetLanguage()
         {
-            LeanLanguage leanLanguage = null;
-            string languageCode = YandexGamesSdk.Environment.i18n.lang;
-            leanLanguage = _languages.Find(lang => lang.TranslationCode == languageCode);
-            Config.Language.CurrentLanguage = leanLanguage == null ? Config.Language.DefaultLanguage : leanLanguage.name;
+            string language = SaveSystem.Settings.LoadLanguage();
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if (language == null)
+            {
+                LeanLanguage leanLanguage = null;
+                string languageCode = YandexGamesSdk.Environment.i18n.lang;
+                leanLanguage = _languages.Find(lang => lang.TranslationCode == languageCode);
+
+                if (leanLanguage != null)
+                    language = leanLanguage.name;
+            }
+#endif
+
+            Config.Language.CurrentLanguage = language == null ? Config.Language.DefaultLanguage : language;
+            SaveSystem.Settings.SaveLanguage(Config.Language.CurrentLanguage);
             LeanLocalization.SetCurrentLanguageAll(Config.Language.CurrentLanguage);
         }
 
