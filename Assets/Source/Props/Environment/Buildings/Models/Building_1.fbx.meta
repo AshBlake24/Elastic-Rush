@@ -10,7 +10,7 @@ ModelImporter:
       name: EndSegaPalette
     second: {fileID: 2100000, guid: 496d08eca1f0ff246b270d5c20658f56, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
