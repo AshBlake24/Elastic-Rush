@@ -99,4 +99,4 @@ MonoBehaviour:
     AudioSource: {fileID: 0}
     AudioClip: {fileID: 8300000, guid: a64d7e8a1fa740d4584e462c507eda6a, type: 3}
   _levelsCost: 50
-  _scoreAmount: 10
+  _scoreAmount: 100

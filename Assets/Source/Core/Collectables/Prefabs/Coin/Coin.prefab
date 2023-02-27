@@ -118,4 +118,4 @@ MonoBehaviour:
   AudioPlayer:
     AudioSource: {fileID: 0}
     AudioClip: {fileID: 8300000, guid: c3a1c1069cae07a499bbffc38b6f93e8, type: 3}
-  _scoreAmount: 1
+  _scoreAmount: 10
