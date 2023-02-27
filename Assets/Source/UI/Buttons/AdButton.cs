@@ -11,12 +11,22 @@ namespace ElasticRush.Core
         [SerializeField] private AudioGroupController _master;
         [SerializeField] private Player _player;
 
+        private bool _isUsed;
+
+        private void Start()
+        {
+            _isUsed = false;
+            ButtonComponent.interactable = true;
+        }
+
         protected override void OnButtonClick()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            if (YandexGamesSdk.IsInitialized)
+            if (YandexGamesSdk.IsInitialized && _isUsed == false)
             {
                 VideoAd.Show(Mute, Reward, Unmute);
+                _isUsed = true;
+                ButtonComponent.interactable = false;
             }
 #endif
         }

@@ -3,21 +3,21 @@ namespace UnityEngine.UI.Extensions
     [RequireComponent(typeof(UI.Button))]
     public abstract class Button : MonoBehaviour
     {
-        private UI.Button _button;
+        protected UI.Button ButtonComponent;
 
         private void Awake()
         {
-            _button = GetComponent<UI.Button>();
+            ButtonComponent = GetComponent<UI.Button>();
         }
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(OnButtonClick);
+            ButtonComponent.onClick.AddListener(OnButtonClick);
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(OnButtonClick);
+            ButtonComponent.onClick.RemoveListener(OnButtonClick);
         }
 
         protected abstract void OnButtonClick();
