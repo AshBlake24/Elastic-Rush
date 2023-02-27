@@ -18,20 +18,23 @@ namespace ElasticRush.Core
         private Quaternion _startRotation;
         private float _elapsedTime;
         private bool _isRotating;
+        private bool _isPaused;
 
         public event Action MoveStoped;
+        public event Action<bool> PauseChanged;
 
         public Waypoint CurrentWaypoint => _currentWaypoint;
 
         private void Start()
         {
+            _isPaused = true;
             _currentWaypoint = _startWaypoint;
             TryStartRotation();
         }
 
         private void Update()
         {
-            if (_currentWaypoint == null)
+            if (_currentWaypoint == null || _isPaused)
                 return;
 
             if (Vector3.Distance(transform.position, _currentWaypoint.transform.position) < DistanceToChangeWaypoint)
@@ -63,6 +66,16 @@ namespace ElasticRush.Core
             }
 
             OnMoveStopped();
+        }
+
+        public void SetPause(bool isPaused)
+        {
+            if (isPaused)
+                _isPaused = true;
+            else
+                _isPaused = false;
+
+            PauseChanged?.Invoke(_isPaused);
         }
 
         public void StopMoving() => OnMoveStopped();

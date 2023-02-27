@@ -12,18 +12,22 @@ namespace ElasticRush.Core
         {
             _playerMoveStarter.MoveStarted += OnMoveStarted;
             _playerWaypointFollower.MoveStoped += OnMoveStoped;
+            _playerWaypointFollower.PauseChanged += OnPauseChanged;
         }
 
         private void OnDisable()
         {
             _playerMoveStarter.MoveStarted -= OnMoveStarted;
             _playerWaypointFollower.MoveStoped -= OnMoveStoped;
+            _playerWaypointFollower.PauseChanged -= OnPauseChanged;
         }
 
         private void ChangeRollingState(bool isRolling)
         {
             _playerAnimator.SetBool(States.Rolling, isRolling);
         }
+
+        private void OnPauseChanged(bool isPaused) => ChangeRollingState(!isPaused);
 
         private void OnMoveStoped() => ChangeRollingState(false);
 

@@ -23,7 +23,6 @@ namespace ElasticRush.Core
         private void Start()
         {
             _startInfo.gameObject.SetActive(true);
-            _follower.enabled = false;
             _input = _playerController.Input;
             _input.Player.Click.started += (ctx) => OnClick();
         }
@@ -35,8 +34,16 @@ namespace ElasticRush.Core
 
             MoveStarted?.Invoke();
             _startInfo.gameObject.SetActive(false);
-            _follower.enabled = true;
-            enabled = false;
+            _follower.SetPause(false);
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (hasFocus == false)
+            {
+                _startInfo.gameObject.SetActive(true);
+                _follower.SetPause(true);
+            }
         }
     }
 }
