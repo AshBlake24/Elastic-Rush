@@ -13,10 +13,12 @@ namespace ElasticRush.Core
 
         protected override void OnButtonClick()
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
             if (YandexGamesSdk.IsInitialized)
             {
                 VideoAd.Show(Mute, Reward, Unmute);
             }
+#endif
         }
 
         private void Mute() => _master.Mute();

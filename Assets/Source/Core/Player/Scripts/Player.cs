@@ -96,14 +96,18 @@ namespace ElasticRush.Core
             ScoreChanged?.Invoke();
         }
 
-        public void AddExtraScore() => UpdatePlayerEntryBestScore();
+        public void AddExtraScore()
+        {
+            UpdatePlayerEntryBestScore();
+            _score += _score;
+            ScoreChanged?.Invoke();
+        }
 
         private void UpdatePlayerEntryBestScore()
         {
             int lastBestScore = SaveSystem.PlayerScore.Load();
             int newBestScore = lastBestScore + _score;
-            SaveSystem.PlayerScore.Save(this, newBestScore);
-            ScoreChanged?.Invoke();
+            SaveSystem.PlayerScore.Save(this, newBestScore);            
         }
     }
 }
