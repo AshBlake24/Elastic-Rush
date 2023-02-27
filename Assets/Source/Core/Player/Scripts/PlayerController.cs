@@ -6,8 +6,8 @@ namespace ElasticRush.Core
     [RequireComponent(typeof(Player))]
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float _minSensitivty = 0.1f;
-        [SerializeField] private float _maxSensitivty = 3.0f;
+        [SerializeField] private float _minSensitivty = 0.01f;
+        [SerializeField] private float _maxSensitivty = 1.00f;
         [SerializeField] private float _xAxisBounds;
 
         private Player _player;

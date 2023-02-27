@@ -596,8 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e364488f76f0ae4b8c233e6a74d3696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minSensitivty: 0.1
-  _maxSensitivty: 2
+  _minSensitivty: 0.01
+  _maxSensitivty: 1
   _xAxisBounds: 0.75
 --- !u!1 &7454313044171199585 stripped
 GameObject:

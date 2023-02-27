@@ -20,7 +20,7 @@ namespace ElasticRush.UI
             _slider.minValue = _controller.Sensitivity.MinValue;
             _slider.value = _controller.Sensitivity.Value;
 
-            _currentValue.text = string.Format("{0:0.0}", _controller.Sensitivity.Value);
+            _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
             _maxValue.text = _controller.Sensitivity.MaxValue.ToString();
             _minValue.text = _controller.Sensitivity.MinValue.ToString();
         }
@@ -38,7 +38,7 @@ namespace ElasticRush.UI
         private void OnValueChanged(float value)
         {
             _controller.Sensitivity.TryChangeSensitivity(value);
-            _currentValue.text = string.Format("{0:0.0}", _controller.Sensitivity.Value);
+            _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
             SaveSystem.Settings.SaveSensitivity(_controller.Sensitivity.Value);
         }
     }

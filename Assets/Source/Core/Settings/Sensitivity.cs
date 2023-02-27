@@ -4,7 +4,7 @@ namespace ElasticRush.Utilities
 {
     public class Sensitivity
     {
-        public const float DefaultValue = 0.6f;
+        public const float DefaultValue = 0.40f;
         public readonly float MinValue;
         public readonly float MaxValue;
 
