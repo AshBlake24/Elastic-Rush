@@ -7,7 +7,7 @@ namespace ElasticRush.Core
 {
     public class WaypointFollower : MonoBehaviour
     {
-        private const float DistanceToChangeWaypoint = 0.01f;
+        private const float DistanceToChangeWaypoint = 0.1f;
 
         [SerializeField] private Waypoint _startWaypoint;
         [SerializeField] private float _speed;
@@ -43,11 +43,8 @@ namespace ElasticRush.Core
                 TryStartRotation();
             }
 
-            Move();            
-        }
+            Move();
 
-        private void LateUpdate()
-        {
             if (_isRotating)
                 Rotate();
         }

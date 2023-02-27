@@ -1,3 +1,4 @@
+using Cinemachine;
 using ElasticRush.Utilities;
 using System;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace ElasticRush.Core
     [RequireComponent(typeof(ElasticBall))]
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
+        [SerializeField] private CinemachineVirtualCamera _camera;
         [SerializeField] private WaypointFollower _originWaypointFollower;
         [SerializeField] private ElasticBall _elasticBall;
 
@@ -77,7 +78,7 @@ namespace ElasticRush.Core
 
             if (_isFinished)
             {
-                _camera.gameObject.transform.SetParent(null, true);
+                StopCamera();
                 StartCoroutine(_originWaypointFollower.StopMovingSlowly());
                 UpdatePlayerEntryBestScore();
                 LevelCompleted?.Invoke();
@@ -87,6 +88,13 @@ namespace ElasticRush.Core
                 _originWaypointFollower.StopMoving();
                 Died?.Invoke();
             }
+        }
+
+        private void StopCamera()
+        {
+            Transform cameraStopPoint = new GameObject("Camera Stop Point").transform;
+            cameraStopPoint.position = _originWaypointFollower.transform.position;
+            _camera.Follow = cameraStopPoint;
         }
 
         public void AddScore(int score)
