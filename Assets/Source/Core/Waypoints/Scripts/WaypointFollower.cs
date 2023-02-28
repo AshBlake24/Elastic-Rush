@@ -45,6 +45,11 @@ namespace ElasticRush.Core
 
             Move();
 
+
+        }
+
+        private void LateUpdate()
+        {
             if (_isRotating)
                 Rotate();
         }

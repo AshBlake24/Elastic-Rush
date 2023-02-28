@@ -20,6 +20,7 @@ namespace ElasticRush.Core
         public event Action EnemyAbsorbed;
         public event Action ScoreChanged;
         public event Action DamageReceived;
+        public event Action Destroying;
         public event Action Died;
 
         public IReadonlyElasticBall ElasticBall => _elasticBall;
@@ -74,11 +75,10 @@ namespace ElasticRush.Core
         public void Destroy()
         {
             _isActive = false;
-            
+            Destroying?.Invoke();
 
             if (_isFinished)
             {
-                StopCamera();
                 StartCoroutine(_originWaypointFollower.StopMovingSlowly());
                 UpdatePlayerEntryBestScore();
                 LevelCompleted?.Invoke();
@@ -88,13 +88,6 @@ namespace ElasticRush.Core
                 _originWaypointFollower.StopMoving();
                 Died?.Invoke();
             }
-        }
-
-        private void StopCamera()
-        {
-            Transform cameraStopPoint = new GameObject("Camera Stop Point").transform;
-            cameraStopPoint.position = _originWaypointFollower.transform.position;
-            _camera.Follow = cameraStopPoint;
         }
 
         public void AddScore(int score)
