@@ -6,20 +6,20 @@ namespace ElasticRush.Core
     {
         [SerializeField] private Animator _playerAnimator;
         [SerializeField] private MoveStarter _playerMoveStarter;
-        [SerializeField] private WaypointFollower _playerWaypointFollower;
+        [SerializeField] private PathFollower _playerPathFollower;
 
         private void OnEnable()
         {
             _playerMoveStarter.MoveStarted += OnMoveStarted;
-            _playerWaypointFollower.MoveStoped += OnMoveStoped;
-            _playerWaypointFollower.PauseChanged += OnPauseChanged;
+            _playerPathFollower.MoveStoped += OnMoveStoped;
+            _playerPathFollower.PauseChanged += OnPauseChanged;
         }
 
         private void OnDisable()
         {
             _playerMoveStarter.MoveStarted -= OnMoveStarted;
-            _playerWaypointFollower.MoveStoped -= OnMoveStoped;
-            _playerWaypointFollower.PauseChanged -= OnPauseChanged;
+            _playerPathFollower.MoveStoped -= OnMoveStoped;
+            _playerPathFollower.PauseChanged -= OnPauseChanged;
         }
 
         private void ChangeRollingState(bool isRolling)

@@ -144,11 +144,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5339727425559324194}
-  - component: {fileID: 5388181374263175126}
   - component: {fileID: 407984876}
   - component: {fileID: 6851206255290819239}
   - component: {fileID: 5348014713253868577}
   - component: {fileID: 1830215862831163131}
+  - component: {fileID: 8586614354940967467}
   m_Layer: 7
   m_Name: Player Origin
   m_TagString: Untagged
@@ -173,21 +173,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5388181374263175126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5339727425559324195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af79e0763dba73d449f45a2e0cd5533d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startWaypoint: {fileID: 0}
-  _speed: 3
-  _rotationLerpDuration: 0.5
 --- !u!65 &407984876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -230,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 5339727424169579214}
-  _follower: {fileID: 5388181374263175126}
+  _follower: {fileID: 8586614354940967467}
   _startInfo: {fileID: 0}
 --- !u!114 &1830215862831163131
 MonoBehaviour:
@@ -246,7 +231,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 6532435661968159948}
   _playerMoveStarter: {fileID: 5348014713253868577}
-  _playerWaypointFollower: {fileID: 5388181374263175126}
+  _playerPathFollower: {fileID: 8586614354940967467}
+--- !u!114 &8586614354940967467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339727425559324195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651d09eb66672704aa1d05ea2383b657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pathCreator: {fileID: 0}
+  _endOfPathInstruction: 2
+  _speed: 3
 --- !u!1 &5339727425727236208
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &5339727425727236213
 MonoBehaviour:
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _originWaypointFollower: {fileID: 5388181374263175126}
+  _pathFollower: {fileID: 8586614354940967467}
   _elasticBall: {fileID: 9002086900109220616}
 --- !u!114 &5339727424169579214
 MonoBehaviour:

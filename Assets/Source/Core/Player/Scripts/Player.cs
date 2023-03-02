@@ -8,8 +8,7 @@ namespace ElasticRush.Core
     [RequireComponent(typeof(ElasticBall))]
     public class Player : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera _camera;
-        [SerializeField] private WaypointFollower _originWaypointFollower;
+        [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private ElasticBall _elasticBall;
 
         private int _score;
@@ -79,13 +78,13 @@ namespace ElasticRush.Core
 
             if (_isFinished)
             {
-                StartCoroutine(_originWaypointFollower.StopMovingSlowly());
+                StartCoroutine(_pathFollower.StopMovingSlowly());
                 UpdatePlayerEntryBestScore();
                 LevelCompleted?.Invoke();
             }
             else
             {
-                _originWaypointFollower.StopMoving();
+                _pathFollower.StopMoving();
                 Died?.Invoke();
             }
         }

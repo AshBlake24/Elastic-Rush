@@ -1,14 +1,14 @@
-using ElasticRush.Utilities;
 using System;
-using TMPro;
 using UnityEngine;
+using ElasticRush.Utilities;
+using TMPro;
 
 namespace ElasticRush.Core
 {
     public class MoveStarter : MonoBehaviour
     {
         [SerializeField] private PlayerController _playerController;
-        [SerializeField] private WaypointFollower _follower;
+        [SerializeField] private PathFollower _follower;
         [SerializeField] private TMP_Text _startInfo;
 
         private PlayerInput _input;
