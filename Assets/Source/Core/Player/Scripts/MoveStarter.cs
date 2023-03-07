@@ -9,7 +9,7 @@ namespace ElasticRush.Core
     {
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PathFollower _follower;
-        [SerializeField] private TMP_Text _startInfo;
+        [SerializeField] private Tutorial _tutorial;
 
         private PlayerInput _input;
 
@@ -22,7 +22,6 @@ namespace ElasticRush.Core
 
         private void Start()
         {
-            _startInfo.gameObject.SetActive(true);
             _input = _playerController.Input;
             _input.Player.Click.started += (ctx) => OnClick();
         }
@@ -33,7 +32,7 @@ namespace ElasticRush.Core
                 return;
 
             MoveStarted?.Invoke();
-            _startInfo.gameObject.SetActive(false);
+            _tutorial.TurnOff();
             _follower.SetPause(false);
         }
 
@@ -41,7 +40,7 @@ namespace ElasticRush.Core
         {
             if (hasFocus == false)
             {
-                _startInfo.gameObject.SetActive(true);
+                _tutorial.TurnOn();
                 _follower.SetPause(true);
             }
         }

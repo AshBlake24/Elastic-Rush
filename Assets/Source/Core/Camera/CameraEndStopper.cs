@@ -30,10 +30,9 @@ namespace ElasticRush.Core
 
         private void StopCamera()
         {
-            Quaternion rotation = transform.rotation;
             Transform cameraStopPoint = new GameObject("Camera Stop Point").transform;
             cameraStopPoint.position = _stopPoint.position;
-            cameraStopPoint.rotation = rotation;
+            cameraStopPoint.rotation = _stopPoint.rotation;
             _camera.Follow = cameraStopPoint;
         }
     }

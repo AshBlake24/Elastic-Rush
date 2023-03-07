@@ -24,7 +24,7 @@ namespace ElasticRush.Core
         {
             Player player = collider.GetComponentInParent<Player>();
 
-            if (player == null && player.IsActive == false)
+            if (player == null || player.IsActive == false)
                 return;
 
             if (player.ElasticBall.Level >= _elasticBall.Level)
