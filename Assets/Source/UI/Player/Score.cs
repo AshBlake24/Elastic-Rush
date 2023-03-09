@@ -9,12 +9,9 @@ namespace ElasticRush.UI
 {
     public class Score : MonoBehaviour
     {
-        private const string ScoreLeanPhrase = "Score";
-        private const string BestLeanPhrase = "Best";
-
         [SerializeField] private Player _player;
-        [SerializeField] private TMP_Text _currentScoreFrame;
-        [SerializeField] private TMP_Text _bestScoreFrame;
+        [SerializeField] private TMP_Text _currentScore;
+        [SerializeField] private TMP_Text _bestScore;
 
         private int _bestStageScore;
 
@@ -32,11 +29,8 @@ namespace ElasticRush.UI
 
         private void ShowScore()
         {
-            string score = LeanLocalization.GetTranslationText(ScoreLeanPhrase);
-            string best = LeanLocalization.GetTranslationText(BestLeanPhrase);
-
-            _currentScoreFrame.text = $"{score}: {_player.Score}";
-            _bestScoreFrame.text = $"{best}: {_bestStageScore}";
+            _currentScore.text = _player.Score.ToString();
+            _bestScore.text = _bestStageScore.ToString();
         }
 
         private void UpdateBestScore()

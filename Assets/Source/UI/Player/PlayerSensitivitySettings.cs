@@ -10,19 +10,13 @@ namespace ElasticRush.UI
     {
         [SerializeField] private PlayerController _controller;
         [SerializeField] private Slider _slider;
-        [SerializeField] private TMP_Text _maxValue;
-        [SerializeField] private TMP_Text _minValue;
         [SerializeField] private TMP_Text _currentValue;
 
         private void Start()
         {
-            _slider.maxValue = _controller.Sensitivity.MaxValue;
-            _slider.minValue = _controller.Sensitivity.MinValue;
             _slider.value = _controller.Sensitivity.Value;
 
             _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
-            _maxValue.text = _controller.Sensitivity.MaxValue.ToString();
-            _minValue.text = _controller.Sensitivity.MinValue.ToString();
         }
 
         private void OnEnable()
