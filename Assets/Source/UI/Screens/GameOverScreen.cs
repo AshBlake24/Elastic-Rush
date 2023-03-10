@@ -6,12 +6,21 @@ namespace ElasticRush.UI
     {
         private void OnEnable()
         {
-            Player.Died += OnPlayerDied;
+            if (Player != null)
+                Player.Died += OnPlayerDied;
         }
 
         private void OnDisable()
         {
-            Player.Died -= OnPlayerDied;
+            if (Player != null)
+                Player.Died -= OnPlayerDied;
+        }
+
+        public override void Init(Player player)
+        {
+            Player = player;
+            Player.Died += OnPlayerDied;
+            Score.Init(player);
         }
 
         private void OnPlayerDied() => ShowEndScreen();

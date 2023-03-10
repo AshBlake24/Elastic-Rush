@@ -9,22 +9,32 @@ namespace ElasticRush.UI
 {
     public class Score : MonoBehaviour
     {
-        [SerializeField] private Player _player;
         [SerializeField] private TMP_Text _currentScore;
         [SerializeField] private TMP_Text _bestScore;
 
+        private Player _player;
         private int _bestStageScore;
 
         private void OnEnable()
         {
-            _player.ScoreChanged += OnPlayerScoreChanged;
-
-            OnPlayerScoreChanged();
+            if (_player != null)
+            {
+                _player.ScoreChanged += OnPlayerScoreChanged;
+                OnPlayerScoreChanged();
+            }
         }
 
         private void OnDisable()
         {
-            _player.ScoreChanged -= OnPlayerScoreChanged;
+            if (_player != null)
+                _player.ScoreChanged -= OnPlayerScoreChanged;
+        }
+
+        public void Init(Player player)
+        {
+            _player = player;
+            _player.ScoreChanged += OnPlayerScoreChanged;
+            OnPlayerScoreChanged();
         }
 
         private void ShowScore()

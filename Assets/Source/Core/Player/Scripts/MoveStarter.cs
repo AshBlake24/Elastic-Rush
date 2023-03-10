@@ -9,8 +9,8 @@ namespace ElasticRush.Core
     {
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PathFollower _follower;
-        [SerializeField] private Tutorial _tutorial;
 
+        private Tutorial _tutorial;
         private PlayerInput _input;
 
         public event Action MoveStarted;
@@ -25,6 +25,8 @@ namespace ElasticRush.Core
             _input = _playerController.Input;
             _input.Player.Click.started += (ctx) => OnClick();
         }
+
+        public void SetTutorial(Tutorial tutorial) => _tutorial = tutorial;
 
         private void OnClick()
         {

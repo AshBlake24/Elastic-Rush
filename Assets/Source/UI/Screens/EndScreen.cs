@@ -7,13 +7,17 @@ namespace ElasticRush.UI
 {
     public abstract class EndScreen : MonoBehaviour
     {
-        [SerializeField] protected Player Player;
         [SerializeField] private GameObject _endScreen;
+        [SerializeField] protected Score Score;
+
+        protected Player Player;
 
         private void Awake()
         {
             _endScreen.SetActive(false);
         }
+
+        public abstract void Init(Player player);
 
         protected void ShowEndScreen()
         {

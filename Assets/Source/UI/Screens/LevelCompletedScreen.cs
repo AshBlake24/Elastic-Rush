@@ -6,12 +6,21 @@ namespace ElasticRush.UI
     {
         private void OnEnable()
         {
-            Player.LevelCompleted += OnLevelCompleted;
+            if (Player != null)
+                Player.LevelCompleted += OnLevelCompleted;
         }
 
         private void OnDisable()
         {
-            Player.LevelCompleted -= OnLevelCompleted;
+            if (Player != null)
+                Player.LevelCompleted -= OnLevelCompleted;
+        }
+
+        public override void Init(Player player)
+        {
+            Player = player;
+            Player.LevelCompleted += OnLevelCompleted;
+            Score.Init(player);
         }
 
         private void OnLevelCompleted() => ShowEndScreen();

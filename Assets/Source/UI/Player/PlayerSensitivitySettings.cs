@@ -8,14 +8,15 @@ namespace ElasticRush.UI
 {
     public class PlayerSensitivitySettings : MonoBehaviour
     {
-        [SerializeField] private PlayerController _controller;
         [SerializeField] private Slider _slider;
         [SerializeField] private TMP_Text _currentValue;
 
-        private void Start()
-        {
-            _slider.value = _controller.Sensitivity.Value;
+        private PlayerController _controller;
 
+        public void Init(PlayerController controller)
+        {
+            _controller = controller;
+            _slider.value = _controller.Sensitivity.Value;
             _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
         }
 
