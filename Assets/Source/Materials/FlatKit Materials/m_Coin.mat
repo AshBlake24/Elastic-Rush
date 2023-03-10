@@ -85,7 +85,7 @@ Material:
     - _FlatRimLightAlign: 0
     - _FlatRimSize: 0.6
     - _FlatSpecularEdgeSmoothness: 1
-    - _FlatSpecularSize: 0.6
+    - _FlatSpecularSize: 0.5
     - _Flatness: 1
     - _FlatnessExtra: 1
     - _GlossMapScale: 1
@@ -108,7 +108,7 @@ Material:
     - _RimEnabled: 1
     - _SelfShadingSize: 0.5
     - _SelfShadingSizeExtra: 0.6
-    - _ShadowEdgeSize: 0.05
+    - _ShadowEdgeSize: 0.3
     - _ShadowEdgeSizeExtra: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 1
@@ -132,7 +132,7 @@ Material:
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.4, g: 0.26933333, b: 0.120000005, a: 1}
-    - _FlatSpecularColor: {r: 0.79170483, g: 0.79170483, b: 0.79170483, a: 1}
+    - _FlatSpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
   m_BuildTextureStacks: []
