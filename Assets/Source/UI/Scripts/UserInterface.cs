@@ -21,6 +21,8 @@ namespace ElasticRush.UI
 
             _levelScore.Init(player);
             _settings.Init(playerController);
+            _gameOverScreen.Init(player);
+            _levelCompletedScreen.Init(player);
         }
     }
 }

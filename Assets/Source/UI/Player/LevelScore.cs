@@ -26,6 +26,7 @@ namespace ElasticRush.UI
         {
             _player = player;
             _player.ScoreChanged += OnScoreChanged;
+            OnScoreChanged();
         }
 
         private void OnScoreChanged()
