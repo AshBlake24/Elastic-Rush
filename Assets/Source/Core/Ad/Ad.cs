@@ -11,16 +11,12 @@ namespace ElasticRush
         private void OnEnable()
         {
             _player.LevelCompleted += OnLevelCompleted;
-            _player.Died += OnPlayerDied;
         }
 
         private void OnDisable()
         {
             _player.LevelCompleted -= OnLevelCompleted;
-            _player.Died -= OnPlayerDied;
         }
-
-        private void OnPlayerDied() => ShowAd();
 
         private void OnLevelCompleted() => ShowAd();
 
