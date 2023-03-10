@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI.Extensions;
 
@@ -6,7 +5,9 @@ namespace ElasticRush
 {
     public class ChangeSceneButton : Button
     {
-        [SerializeField] private string _nextSceneName;
+        private string _nextSceneName;
+
+        public void Init(string nextSceneName) => _nextSceneName = nextSceneName;
 
         protected override void OnButtonClick()
         {

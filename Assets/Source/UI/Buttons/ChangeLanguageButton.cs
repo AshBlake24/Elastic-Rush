@@ -7,7 +7,9 @@ namespace ElasticRush.UI
 {
     public class ChangeLanguageButton : Button
     {
-        [SerializeField] private LeanLanguage _language;
+        private LeanLanguage _language;
+
+        public void SetLanguage(LeanLanguage language) => _language = language;
 
         protected override void OnButtonClick()
         {
