@@ -1,4 +1,4 @@
-using Cinemachine;
+using ElasticRush.Effects;
 using ElasticRush.Utilities;
 using System;
 using UnityEngine;
@@ -11,6 +11,10 @@ namespace ElasticRush.Core
         [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private ElasticBall _elasticBall;
 
+        [Header("VFX")]
+        [SerializeField] private Transform _effectPoint;
+        [SerializeField] private Effect _deathEffect;
+
         private int _score;
         private bool _isFinished;
         private bool _isActive;
@@ -22,12 +26,16 @@ namespace ElasticRush.Core
         public event Action Destroying;
         public event Action Died;
 
+        public static ObjectPool<ParticleSystem> EffectPool { get; private set; }
         public IReadonlyElasticBall ElasticBall => _elasticBall;
         public int Score => _score;
         public bool IsActive => _isActive;
 
         private void Start()
         {
+            if (EffectPool == null)
+                EffectPool = new ObjectPool<ParticleSystem>(_deathEffect.gameObject);
+
             _isActive = true;
             _isFinished = false;
             ScoreChanged?.Invoke();
@@ -86,6 +94,7 @@ namespace ElasticRush.Core
             {
                 _pathFollower.StopMoving();
                 Died?.Invoke();
+                EmitEffect();
             }
         }
 
@@ -108,6 +117,13 @@ namespace ElasticRush.Core
             int lastBestScore = SaveSystem.PlayerScore.Load();
             int newBestScore = lastBestScore + _score;
             SaveSystem.PlayerScore.Save(this, newBestScore);            
+        }
+
+        private void EmitEffect()
+        {
+            ParticleSystem vfx = EffectPool.GetInstance();
+            vfx.gameObject.SetActive(true);
+            vfx.transform.SetLocalPositionAndRotation(_effectPoint.position, Quaternion.identity);
         }
     }
 }

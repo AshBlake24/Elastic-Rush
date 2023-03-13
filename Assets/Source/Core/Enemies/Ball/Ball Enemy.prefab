@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: _levelFrame
       value: 
       objectReference: {fileID: 7571727674999527912}
+    - target: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
+      propertyPath: _deathEffect
+      value: 
+      objectReference: {fileID: 2269946547174031419, guid: 0a43d6af30ffda6498fb97d7d3202d7e, type: 3}
     - target: {fileID: 5774539664991075643, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_Layer
       value: 9

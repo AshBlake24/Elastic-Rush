@@ -216,7 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerController: {fileID: 5339727424169579214}
   _follower: {fileID: 8586614354940967467}
-  _startInfo: {fileID: 0}
 --- !u!114 &1830215862831163131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +461,10 @@ PrefabInstance:
       propertyPath: _levelFrame
       value: 
       objectReference: {fileID: 5339727424911123926}
+    - target: {fileID: 3960726319922577802, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
+      propertyPath: _deathEffect
+      value: 
+      objectReference: {fileID: -1977842952658678397, guid: 71b02155078e4bf4e962f302d3675af2, type: 3}
     - target: {fileID: 5774539664991075643, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -519,9 +522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c2081f836c94648be1cbaa25b15f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   _pathFollower: {fileID: 8586614354940967467}
   _elasticBall: {fileID: 9002086900109220616}
+  _effectPoint: {fileID: 6464800591187917270}
+  _deathEffect: {fileID: 556633654731728298, guid: f2bb6fbe63bfed24f8ee027776bfed73, type: 3}
 --- !u!114 &5339727424169579214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +541,11 @@ MonoBehaviour:
   _minSensitivty: 0.01
   _maxSensitivty: 1
   _xAxisBounds: 0.75
+--- !u!4 &6464800591187917270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1417807255848231764, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
+  m_PrefabInstance: {fileID: 5339727424952441474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7454313044171199585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3272304888231562979, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}

@@ -119,3 +119,4 @@ MonoBehaviour:
     AudioSource: {fileID: 0}
     AudioClip: {fileID: 8300000, guid: c3a1c1069cae07a499bbffc38b6f93e8, type: 3}
   _scoreAmount: 10
+  _coinEffect: {fileID: 346182388798455345, guid: 471088445f741e64c82f447ba7849c30, type: 3}
