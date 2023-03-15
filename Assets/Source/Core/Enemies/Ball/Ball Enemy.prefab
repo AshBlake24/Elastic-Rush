@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294111986
+  m_fontColor: {r: 0.95, g: 0.95, b: 0.95, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -393,6 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1f4468543b2b248b0657b6c8557304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2102214166581020483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3500382183865756414, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
+  m_PrefabInstance: {fileID: 3296436643220139453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2312294396244089191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
@@ -421,6 +426,8 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: c44736619f5bd984c97ce4306c008182, type: 3}
   _player: {fileID: 0}
   _elasticBall: {fileID: 1965847844672842807}
+  _effectPoint: {fileID: 2102214166581020483}
+  _destroyEffect: {fileID: 6283268194957135604, guid: 4a3acdc5cefd5f74ebcb02914ae9be64, type: 3}
 --- !u!1 &9051112178916364422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5774539664991075643, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}

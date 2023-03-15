@@ -100,3 +100,4 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: a64d7e8a1fa740d4584e462c507eda6a, type: 3}
   _levelsCost: 50
   _scoreAmount: 100
+  _currencyEffect: {fileID: -968586375905592078, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
