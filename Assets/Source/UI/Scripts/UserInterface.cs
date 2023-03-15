@@ -13,6 +13,7 @@ namespace ElasticRush.UI
         [SerializeField] private GameOverScreen _gameOverScreen;
         [SerializeField] private LevelCompletedScreen _levelCompletedScreen;
         [SerializeField] private ChangeSceneButton _nextLevelButton;
+        [SerializeField] private AdButton _adButton;
 
         public Tutorial Tutorial => _tutorial;
 
@@ -31,6 +32,7 @@ namespace ElasticRush.UI
             _gameOverScreen.Init(player);
             _levelCompletedScreen.Init(player);
             _nextLevelButton.Init(nextLevel);
+            _adButton.Init(player);
         }
     }
 }

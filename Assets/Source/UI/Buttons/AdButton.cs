@@ -3,20 +3,26 @@ using UnityEngine.UI.Extensions;
 using Agava.YandexGames;
 using ElasticRush.Audio;
 using ElasticRush.Utilities;
+using System;
 
 namespace ElasticRush.Core
 {
     public class AdButton : Button
     {
         [SerializeField] private AudioGroupController _master;
-        [SerializeField] private Player _player;
 
+        private Player _player;
         private bool _isUsed;
 
         private void Start()
         {
             _isUsed = false;
             ButtonComponent.interactable = true;
+        }
+
+        public void Init(Player player)
+        {
+            _player = player;
         }
 
         protected override void OnButtonClick()

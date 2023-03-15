@@ -126,6 +126,7 @@ MonoBehaviour:
   _gameOverScreen: {fileID: 189404736094527459}
   _levelCompletedScreen: {fileID: 189404736094527468}
   _nextLevelButton: {fileID: 7472044442760690037}
+  _adButton: {fileID: 7472044443145697108}
 --- !u!1 &189404736094527470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1313,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a7af9f9a87c4b4799bc5757f629a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7472044443145697108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7283145574482955564, guid: bc49a0b4a50a31a40b6679231bf2d595, type: 3}
+  m_PrefabInstance: {fileID: 189404737561606776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f88b6f94eb15bc489d321673efcc84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7472044443588477906 stripped
