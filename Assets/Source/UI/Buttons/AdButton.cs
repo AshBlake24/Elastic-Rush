@@ -4,6 +4,7 @@ using Agava.YandexGames;
 using ElasticRush.Audio;
 using ElasticRush.Utilities;
 using System;
+using Unity.VisualScripting;
 
 namespace ElasticRush.Core
 {
@@ -41,6 +42,9 @@ namespace ElasticRush.Core
 
         private void Unmute() => _master.Unmute();
 
-        private void Reward() => _player.AddExtraScore();
+        private void Reward() 
+        {
+            _player.AddExtraScore();
+        }
     }
 }

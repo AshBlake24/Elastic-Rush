@@ -36,8 +36,6 @@ namespace ElasticRush.Core
 
             SetLanguage();
 
-            StickyAd.Show();
-
             _stage = SaveSystem.Stage.Load();
             SceneLoader.Instance.LoadScene(_stage);
         }
