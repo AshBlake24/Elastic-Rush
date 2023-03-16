@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI.Extensions;
 
@@ -13,6 +14,15 @@ namespace ElasticRush
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneLoader.Instance.ChangeScene(_nextSceneName, currentSceneName);
+            ShowAd();
+        }
+
+        private void ShowAd()
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            if (YandexGamesSdk.IsInitialized)
+                InterstitialAd.Show();
+#endif
         }
     }
 }

@@ -38,6 +38,7 @@ namespace ElasticRush.Core
 
             _stage = SaveSystem.Stage.Load();
             SceneLoader.Instance.LoadScene(_stage);
+            StickyAd.Show();
         }
 
         private string GetStageToLoad()
