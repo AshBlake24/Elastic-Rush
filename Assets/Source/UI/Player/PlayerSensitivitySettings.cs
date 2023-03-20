@@ -11,13 +11,15 @@ namespace ElasticRush.UI
         [SerializeField] private Slider _slider;
         [SerializeField] private TMP_Text _currentValue;
 
-        private PlayerController _controller;
+        private Sensitivity _playerSensitivity;
 
-        public void Init(PlayerController controller)
+        public void Init(Sensitivity playerSensitivity)
         {
-            _controller = controller;
-            _slider.value = _controller.Sensitivity.Value;
-            _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
+            _playerSensitivity = playerSensitivity;
+            _slider.minValue = _playerSensitivity.MinValue;
+            _slider.maxValue = _playerSensitivity.MaxValue;
+            _slider.value = _playerSensitivity.Value;
+            _currentValue.text = string.Format("{0:0.00}", _playerSensitivity.Value);
         }
 
         private void OnEnable()
@@ -32,9 +34,9 @@ namespace ElasticRush.UI
 
         private void OnValueChanged(float value)
         {
-            _controller.Sensitivity.TryChangeSensitivity(value);
-            _currentValue.text = string.Format("{0:0.00}", _controller.Sensitivity.Value);
-            SaveSystem.Settings.SaveSensitivity(_controller.Sensitivity.Value);
+            _playerSensitivity.TryChangeSensitivity(value);
+            _currentValue.text = string.Format("{0:0.00}", _playerSensitivity.Value);
+            SaveSystem.Settings.SaveSensitivity(_playerSensitivity.Value);
         }
     }
 }

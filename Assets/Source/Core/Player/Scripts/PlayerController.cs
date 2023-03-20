@@ -1,5 +1,7 @@
 using ElasticRush.Utilities;
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace ElasticRush.Core
 {
@@ -14,6 +16,7 @@ namespace ElasticRush.Core
         private PlayerInput _input;
         private Sensitivity _sensitivity;
         private bool _isDragging;
+        private bool _isMoving;
 
         public Sensitivity Sensitivity => _sensitivity;
         public PlayerInput Input => _input;
@@ -32,6 +35,8 @@ namespace ElasticRush.Core
 
             _input.Player.Click.started += (ctx) => OnClickStarted();
             _input.Player.Click.canceled += (ctx) => OnClickCanceled();
+            _input.Player.Move.started += (ctx) => OnMoveStarted();
+            _input.Player.Move.canceled += (ctx) => OnMoveCanceled();
         }
 
         private void OnDisable()
@@ -40,6 +45,8 @@ namespace ElasticRush.Core
 
             _input.Player.Click.started -= (ctx) => OnClickStarted();
             _input.Player.Click.canceled -= (ctx) => OnClickCanceled();
+            _input.Player.Move.started -= (ctx) => OnMoveStarted();
+            _input.Player.Move.canceled -= (ctx) => OnMoveCanceled();
         }
 
         private void Update()
@@ -47,20 +54,20 @@ namespace ElasticRush.Core
             if (_player.IsActive == false)
                 return;
 
-            if (_isDragging && Helpers.IsOverUI() == false)
-                TryDrag();
+            if (_isMoving)
+                TryMove(_input.Player.Move.ReadValue<float>());
+            else if (_isDragging && Helpers.IsOverUI() == false)
+                TryMove(_input.Player.Drag.ReadValue<Vector2>().x);
         }
 
-        private void TryDrag()
+        private void TryMove(float moveDelta)
         {
-            float moveDeltaAlongX = _input.Player.Drag.ReadValue<Vector2>().x;
-
-            if (moveDeltaAlongX != 0)
+            if (moveDelta != 0)
             {
-                float scaledMoveDeltaAlongX = moveDeltaAlongX * _sensitivity.Value * Time.deltaTime;
+                float scaledMoveDelta = moveDelta * _sensitivity.Value * Time.deltaTime;
 
                 var localPosition = new Vector3(
-                    Mathf.Clamp(transform.localPosition.x + scaledMoveDeltaAlongX, -_xAxisBounds, _xAxisBounds),
+                    Mathf.Clamp(transform.localPosition.x + scaledMoveDelta, -_xAxisBounds, _xAxisBounds),
                     transform.localPosition.y,
                     transform.localPosition.z);
 
@@ -68,14 +75,12 @@ namespace ElasticRush.Core
             }
         }
 
-        private void OnClickStarted()
-        {
-            _isDragging = true;
-        }
+        private void OnMoveStarted() => _isMoving = true;
 
-        private void OnClickCanceled()
-        {
-            _isDragging = false;
-        }
+        private void OnMoveCanceled() => _isMoving = false;
+
+        private void OnClickStarted() => _isDragging = true;
+
+        private void OnClickCanceled() => _isDragging = false;
     }
 }

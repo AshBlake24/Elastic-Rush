@@ -28,7 +28,7 @@ namespace ElasticRush.UI
             _canvas.worldCamera = camera;
 
             _levelScore.Init(player);
-            _settings.Init(playerController, languages);
+            _settings.Init(playerController.Sensitivity, languages);
             _gameOverScreen.Init(player);
             _levelCompletedScreen.Init(player);
             _nextLevelButton.Init(nextLevel);

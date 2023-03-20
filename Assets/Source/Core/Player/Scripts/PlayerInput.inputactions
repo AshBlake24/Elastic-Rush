@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "e302d99a-f211-46b4-b331-37b1b1546944",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -31,7 +40,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Mouse & Keyboard",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -49,33 +58,55 @@
                 },
                 {
                     "name": "",
-                    "id": "e7bf66ef-a8b7-4f11-9cc6-db19234a920e",
-                    "path": "<Mouse>/delta",
+                    "id": "5060e8b5-2723-41d1-85dc-9aace9d3c524",
+                    "path": "<Touchscreen>/delta",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse",
+                    "processors": "ScaleVector2(x=0.1,y=0.1)",
+                    "groups": "Mobile",
                     "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "5060e8b5-2723-41d1-85dc-9aace9d3c524",
-                    "path": "<Touchscreen>/delta",
+                    "name": "1D Axis",
+                    "id": "21c8cfac-5928-45ec-9016-db75107182ee",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mobile",
-                    "action": "Drag",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2dc42c58-db10-41f3-8789-fcb070ffbc82",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d23bb62b-27d7-4f3e-8277-2bfd81686c91",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Mouse",
-            "bindingGroup": "Mouse",
+            "name": "Mouse & Keyboard",
+            "bindingGroup": "Mouse & Keyboard",
             "devices": [
                 {
                     "devicePath": "<Mouse>",

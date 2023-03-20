@@ -1,4 +1,5 @@
 using ElasticRush.Core;
+using ElasticRush.Utilities;
 using Lean.Localization;
 using System;
 using UnityEngine;
@@ -25,9 +26,9 @@ namespace ElasticRush.UI
             Time.timeScale = _lastTimeScale;
         }
 
-        public void Init(PlayerController playerController, LeanLanguage[] languages)
+        public void Init(Sensitivity playerSensitivity, LeanLanguage[] languages)
         {
-            _playerSensitivitySettings.Init(playerController);
+            _playerSensitivitySettings.Init(playerSensitivity);
             SetLanguages(languages);
         }
 
