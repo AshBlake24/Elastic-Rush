@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2253885809628250189, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
       propertyPath: m_text
-      value: <MISSING>
+      value: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 1"
       objectReference: {fileID: 0}
     - target: {fileID: 2253885809628250189, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
       propertyPath: m_fontSize
@@ -1195,11 +1195,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 108202572417416085, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
       propertyPath: m_text
-      value: <MISSING>
+      value: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u0447\u0442\u043E\u0431\u044B
+        \u043D\u0430\u0447\u0430\u0442\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 108202572417416085, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
       propertyPath: m_fontSize
-      value: 192.4
+      value: 99.75
       objectReference: {fileID: 0}
     - target: {fileID: 108202572581861753, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
       propertyPath: m_RaycastTarget
@@ -1428,6 +1429,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc49a0b4a50a31a40b6679231bf2d595, type: 3}
+--- !u!1 &886322322130796717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1075304703714769621, guid: bc49a0b4a50a31a40b6679231bf2d595, type: 3}
+  m_PrefabInstance: {fileID: 189404737561606776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3171288987830664440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886322322130796717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Level Completed
+  FallbackText: <MISSING>
 --- !u!114 &7472044442760690037 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7283145574533825293, guid: bc49a0b4a50a31a40b6679231bf2d595, type: 3}
@@ -1568,11 +1588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6938773566322535091, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
       propertyPath: m_text
-      value: <MISSING>
+      value: "\u0421\u0447\u0435\u0442"
       objectReference: {fileID: 0}
     - target: {fileID: 6938773566322535091, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
       propertyPath: m_fontSize
-      value: 25.4
+      value: 49.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
