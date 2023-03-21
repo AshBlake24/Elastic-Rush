@@ -1,4 +1,5 @@
 using ElasticRush.Core;
+using TMPro;
 using UnityEngine;
 
 namespace ElasticRush.UI
@@ -33,10 +34,7 @@ namespace ElasticRush.UI
             transform.localScale = Vector3.one * (_localSize / ballSize);
         }
 
-        private void Destroy()
-        {
-            Destroy(gameObject);
-        }
+        private void Destroy() => Destroy(gameObject);
 
         private void OnLevelCompleted() => Destroy();
 

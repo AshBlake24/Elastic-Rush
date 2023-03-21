@@ -1,8 +1,8 @@
-using ElasticRush.Effects;
-using ElasticRush.Utilities;
 using System;
-using TMPro;
 using UnityEngine;
+using ElasticRush.UI;
+using Lean.Localization;
+using TMPro;
 
 namespace ElasticRush.Core
 {
@@ -11,6 +11,7 @@ namespace ElasticRush.Core
         private const int MinLevel = 1;
         private const float MinSize = 1f;
         private const float MaxSize = 3f;
+        private const string BallLevelPhrase = "Ball Level";
 
         [SerializeField, Min(MinLevel)] private int _level = MinLevel;
         [SerializeField] private TMP_Text _levelFrame;
@@ -29,9 +30,20 @@ namespace ElasticRush.Core
             ChangeSize();
         }
 
+        private void OnEnable()
+        {
+            ChangeLanguageButton.LanguageChanged += OnLanguageChanged;
+        }
+
+        private void OnDisable()
+        {
+            ChangeLanguageButton.LanguageChanged -= OnLanguageChanged;
+        }
+
         private void Start()
         {
             LevelChanged?.Invoke();
+            TrySetText();
         }
 
         public void LevelUp(int levels = 1)
@@ -75,10 +87,18 @@ namespace ElasticRush.Core
         {
             _level = level;
 
-            if (_levelFrame != null)
-                _levelFrame.text = $"LVL {_level}";
+            TrySetText();
 
             LevelChanged?.Invoke();
+        }
+
+        private void TrySetText()
+        {
+            if (_levelFrame != null)
+            {
+                string translation = LeanLocalization.GetTranslationText(BallLevelPhrase);
+                _levelFrame.text = $"{translation} {_level}";
+            }
         }
 
         private void ChangeSize()
@@ -89,5 +109,7 @@ namespace ElasticRush.Core
 
             SizeChanged?.Invoke(_size);
         }
+
+        private void OnLanguageChanged() => TrySetText();
     }
 }

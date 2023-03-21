@@ -66,10 +66,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LVL 1
+  m_text: Lvl 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 92770825bc329df48a61cfe27352bba9, type: 2}
-  m_sharedMaterial: {fileID: 5779605663750060187, guid: 92770825bc329df48a61cfe27352bba9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 45
-  m_fontStyle: 1
+  m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -393,11 +393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1f4468543b2b248b0657b6c8557304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2102214166581020483 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3500382183865756414, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
-  m_PrefabInstance: {fileID: 3296436643220139453}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2312294396244089191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 984494095805641946, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
@@ -426,8 +421,6 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: c44736619f5bd984c97ce4306c008182, type: 3}
   _player: {fileID: 0}
   _elasticBall: {fileID: 1965847844672842807}
-  _effectPoint: {fileID: 2102214166581020483}
-  _destroyEffect: {fileID: 6283268194957135604, guid: 4a3acdc5cefd5f74ebcb02914ae9be64, type: 3}
 --- !u!1 &9051112178916364422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5774539664991075643, guid: 80573b8445d01ef49b8a53cd843a9365, type: 3}
