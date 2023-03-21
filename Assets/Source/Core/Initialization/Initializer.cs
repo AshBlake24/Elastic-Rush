@@ -35,6 +35,7 @@ namespace ElasticRush.Core
                 throw new ArgumentNullException(nameof(YandexGamesSdk), "Yandex SDK didn't initialized correctly");
 
             SetLanguage();
+            RequestData();
 
             _stage = SaveSystem.Stage.Load();
             SceneLoader.Instance.LoadScene(_stage);
@@ -68,6 +69,15 @@ namespace ElasticRush.Core
             Config.Language.CurrentLanguage = language == null ? Config.Language.DefaultLanguage : language;
             SaveSystem.Settings.SaveLanguage(Config.Language.CurrentLanguage);
             LeanLocalization.SetCurrentLanguageAll(Config.Language.CurrentLanguage);
+        }
+
+        private void RequestData()
+        {
+            if (YandexGamesSdk.IsInitialized)
+            {
+                if (PlayerAccount.HasPersonalProfileDataPermission == false)
+                    PlayerAccount.RequestPersonalProfileDataPermission();
+            }
         }
 
         private enum Stage
