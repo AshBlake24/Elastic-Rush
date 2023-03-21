@@ -1,19 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI.Extensions;
 using Agava.YandexGames;
-using ElasticRush.Audio;
-using ElasticRush.Utilities;
 using System;
-using Unity.VisualScripting;
 
 namespace ElasticRush.Core
 {
     public class AdButton : Button
     {
-        [SerializeField] private AudioGroupController _master;
-
         private Player _player;
         private bool _isUsed;
+
+        public static event Action AdOpened;
+        public static event Action AdClosed;
 
         private void Start()
         {
@@ -38,13 +36,10 @@ namespace ElasticRush.Core
 #endif
         }
 
-        private void Mute() => _master.Mute();
+        private void Mute() => AdOpened?.Invoke();
 
-        private void Unmute() => _master.Unmute();
+        private void Unmute() => AdClosed?.Invoke();
 
-        private void Reward() 
-        {
-            _player.AddExtraScore();
-        }
+        private void Reward() => _player.AddExtraScore();
     }
 }

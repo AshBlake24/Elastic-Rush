@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -6642,7 +6642,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1883622231}
-  - component: {fileID: 1883622233}
   - component: {fileID: 1883622232}
   m_Layer: 0
   m_Name: Audio
@@ -6681,21 +6680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c550a46c180474096cbc04e88a8374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _master: {fileID: 1883622233}
---- !u!114 &1883622233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883622229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddedbd020fe7a114aabf6f2a4c2fbb81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: e04ccc520fc68f644b48f1092f3d883b, type: 2}
-  _exposedVolumeName: Master
+  _master: {fileID: 0}
 --- !u!4 &1890073639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5910480236100099621, guid: 10a7685715328fc46a9ddbac31e1f732, type: 3}

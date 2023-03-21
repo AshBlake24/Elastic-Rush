@@ -23,7 +23,10 @@ namespace ElasticRush.Utilities
 
         private void Mute(bool isMute)
         {
-            AudioListener.volume = isMute ? 0f : 1f;
+            if (AdObserver.IsAdPlaying)
+                AudioListener.volume = 0f;
+            else
+                AudioListener.volume = isMute ? 0f : 1f;
         }
     }
 }
