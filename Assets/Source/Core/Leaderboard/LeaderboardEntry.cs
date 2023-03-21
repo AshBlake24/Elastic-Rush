@@ -23,12 +23,10 @@ namespace ElasticRush
 
         private void SetName(string name)
         {
-            string playerName = name;
+            PlayerName = name;
 
-            if (string.IsNullOrEmpty(playerName))
+            if (string.IsNullOrEmpty(PlayerName))
                 PlayerName = Anonymous;
-            else
-                PlayerName = playerName;
         }
     }
 }

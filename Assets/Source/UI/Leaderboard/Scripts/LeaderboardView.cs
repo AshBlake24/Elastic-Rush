@@ -17,6 +17,7 @@ namespace ElasticRush.UI
 
         private void OnEnable()
         {
+            RequestData();
             LoadData();
 
             _lastTimeScale = Time.timeScale;
@@ -68,6 +69,15 @@ namespace ElasticRush.UI
                 Destroy(entry.gameObject);
 
             _leaderboardEntryViews.Clear();
+        }
+
+        private void RequestData()
+        {
+            if (YandexGamesSdk.IsInitialized)
+            {
+                if (PlayerAccount.HasPersonalProfileDataPermission == false)
+                    PlayerAccount.RequestPersonalProfileDataPermission();
+            }
         }
     }
 }
