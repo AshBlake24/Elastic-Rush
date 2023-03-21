@@ -4311,6 +4311,10 @@ PrefabInstance:
       propertyPath: _effectPoint
       value: 
       objectReference: {fileID: 1236125208}
+    - target: {fileID: 5339727424911123926, guid: 8e59acb016e60a843a890696e658caca, type: 3}
+      propertyPath: m_text
+      value: Lvl 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5339727425559324194, guid: 8e59acb016e60a843a890696e658caca, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4849,7 +4853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
