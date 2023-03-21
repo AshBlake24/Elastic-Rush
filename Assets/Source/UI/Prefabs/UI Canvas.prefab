@@ -293,18 +293,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2253885809628250189, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
-      propertyPath: m_text
-      value: <MISSING>
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253885809628250189, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
-      propertyPath: m_fontSize
-      value: 89.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2253885809628250189, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c2848f0dfe39404cb480548d8faf6e7, type: 3}
 --- !u!224 &2154848902919683464 stripped
@@ -409,11 +397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5823354200433420332, guid: aba48b9fad0c0a8478895716578f47d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5823354201036230690, guid: aba48b9fad0c0a8478895716578f47d8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba48b9fad0c0a8478895716578f47d8, type: 3}
@@ -945,22 +933,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 189404735758546049}
     m_Modifications:
-    - target: {fileID: 6420543952706898163, guid: d58bcf6a38b2b3a419c661e79fba25a4, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 386c94c26d6904e8fa68371eebbbaaf4, type: 3}
-    - target: {fileID: 6420543952706898163, guid: d58bcf6a38b2b3a419c661e79fba25a4, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420543952706898163, guid: d58bcf6a38b2b3a419c661e79fba25a4, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6420543952706898163, guid: d58bcf6a38b2b3a419c661e79fba25a4, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6420543952706898165, guid: d58bcf6a38b2b3a419c661e79fba25a4, type: 3}
       propertyPath: _leaderboardView
       value: 
@@ -1075,30 +1047,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7379380272194948285}
-    - target: {fileID: 2117809055697804930, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117809055697804931, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117809055697804931, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 386c94c26d6904e8fa68371eebbbaaf4, type: 3}
-    - target: {fileID: 2117809055697804931, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117809055697804931, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117809055697804931, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2117809055697804932, guid: 82a60f9f32cda2140aa9ff03ddce4138, type: 3}
       propertyPath: m_Name
       value: Settings Button
@@ -1201,22 +1149,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 189404735758546049}
     m_Modifications:
-    - target: {fileID: 108202572417416085, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
-      propertyPath: m_text
-      value: <MISSING>
-      objectReference: {fileID: 0}
-    - target: {fileID: 108202572417416085, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
-      propertyPath: m_fontSize
-      value: 192.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 108202572581861753, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108202573021932329, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 108202573898561333, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1304,10 +1236,6 @@ PrefabInstance:
     - target: {fileID: 108202573898561335, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
       propertyPath: m_Name
       value: Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 108202573898561335, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ac4a0cd5d2d8a4b93783cb50c6a429, type: 3}
@@ -1592,14 +1520,6 @@ PrefabInstance:
     - target: {fileID: 5384375552797933694, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6938773566322535091, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
-      propertyPath: m_text
-      value: <MISSING>
-      objectReference: {fileID: 0}
-    - target: {fileID: 6938773566322535091, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
-      propertyPath: m_fontSize
-      value: 25.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2acf2b215e901744aa1ca70955073970, type: 3}
